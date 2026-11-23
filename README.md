@@ -9,7 +9,7 @@ answers, private data or credentials are included.
 ## Skill
 
 - Name: `research-frontier-trend-analysis`
-- Summary: Use when a dated literature batch must be analysed for research fronts and trends, requiring yearly output counts, term-level activity series with deterministic lifecycle labels, burst years, representative works per period, stated open questions and batch-bounded coverage gaps.
+- Summary: Use when a dated literature batch must be analysed for research fronts and trends: yearly counts, term activity with deterministic lifecycle labels, bursts, representative works, stated open questions and batch-bounded gaps.
 
 ## Contents
 
