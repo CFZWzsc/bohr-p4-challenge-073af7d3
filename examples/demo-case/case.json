@@ -1,0 +1,74 @@
+{
+  "case_id": "demo-trend-001",
+  "topic": "CAR-T persistence and CRISPR screening",
+  "note": "Synthetic demo data for interface checks only; no real study is described.",
+  "records": [
+    {
+      "source_id": "R1",
+      "title": "CAR-T persistence and cytokine release",
+      "abstract": "CAR-T persistence correlated with cytokine release in an early cohort of patients.",
+      "year": 2019,
+      "citations": 40,
+      "venue": "Demo Journal",
+      "doi": "10.0000/demo.r1"
+    },
+    {
+      "source_id": "R2",
+      "title": "Cytokine profiles in CAR-T persistence",
+      "abstract": "Cytokine profiles tracked CAR-T persistence over one year in a cohort.",
+      "year": 2020,
+      "citations": 25
+    },
+    {
+      "source_id": "R3",
+      "title": "CRISPR screen for CAR-T persistence regulators",
+      "abstract": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+      "year": 2021,
+      "citations": 60
+    },
+    {
+      "source_id": "R4",
+      "title": "Long-term persistence of CAR-T cells",
+      "abstract": "Long-term persistence of CAR-T cells was observed in a cohort followed for two years.",
+      "year": 2021,
+      "citations": 10
+    },
+    {
+      "source_id": "R5",
+      "title": "Open questions in CAR-T persistence",
+      "abstract": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+      "year": 2023,
+      "citations": 5
+    },
+    {
+      "source_id": "R6",
+      "title": "CRISPR screening with machine learning",
+      "abstract": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+      "year": 2024,
+      "citations": 30
+    },
+    {
+      "source_id": "R7",
+      "title": "Machine learning for CRISPR guide design",
+      "abstract": "Machine learning improved CRISPR guide design and screen efficiency in primary cells.",
+      "year": 2025,
+      "citations": 12
+    },
+    {
+      "source_id": "R8",
+      "title": "Commentary on CAR-T manufacturing"
+    }
+  ],
+  "output_contract": {
+    "trend_overview": "object: yearly counts, year range and peak year",
+    "theme_evolution": "array: theme stage with basis and sources",
+    "claim_evidence": "array: each claim with locator, quote and period",
+    "representative_selection": "array: per-period selection rule and omissions",
+    "gap_exclusion": "array: gap checked against the batch",
+    "conflicts": "array: diverging lifecycles and merge/split candidates",
+    "research_gaps": "array: batch-bounded gaps",
+    "needs_human_confirmation": "array: items requiring full text or an external index",
+    "synthesis": "object: bounded trend narrative",
+    "status": "string: run status"
+  }
+}
