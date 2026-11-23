@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "description": "Deterministic policy for the research-trend and theme-evolution skill. Every threshold below is applied mechanically by scripts/sk_entry.py; no network or model call is made.",
+  "lifecycle": {
+    "dormant_gap_years": 3,
+    "growth_factor": 2.0,
+    "rule": "emerging: first seen within the last two years with latest-half activity; growing: late >= 2x early; declining: early >= 2x late; dormant: no record in the last three years; otherwise stable"
+  },
+  "caps": {
+    "tracked_terms": 12,
+    "quote_chars": 240,
+    "max_claims": 40,
+    "max_manifest_files": 200,
+    "manifest_hash_bytes": 1048576
+  },
+  "status": {
+    "success": "a topic and at least two dated records spanning two or more years",
+    "partial": "records exist but fewer than two are dated, or all dated records fall in one year",
+    "insufficient_input": "no topic or no record was supplied",
+    "failed": "the case file could not be read or the analysis raised an unhandled error"
+  },
+  "evidence": {
+    "locator_rule": "locators are JSON pointers into the supplied case.json (for example /records/2), never page numbers of a generated report",
+    "quote_rule": "quotes are exact substrings of the cited field; truncation keeps a prefix and sets truncated=true",
+    "claim_rule": "each trend, evolution, representative and gap claim carries at least one locator and quote, or is marked not_determinable"
+  },
+  "no_fabrication": [
+    "never invent records, years, venues, citation counts or open questions",
+    "never report a batch-absent term as a field-level research gap",
+    "never claim a merge or split from term counts alone; only co-occurrence candidates are reported",
+    "never extrapolate future years"
+  ],
+  "source_declaration": "All sources are the records supplied in the case file; the skill performs no external retrieval and does not verify that the records exist.",
+  "limits": {
+    "max_files": 50,
+    "max_file_bytes": 500000,
+    "max_total_bytes": 2097152,
+    "network": false,
+    "stdlib_only": true,
+    "deterministic": true
+  }
+}
