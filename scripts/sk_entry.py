@@ -27,7 +27,9 @@ RECORD_KEYS = ("records", "papers", "documents", "literature", "sources", "items
 STOP = {"the", "and", "for", "with", "from", "that", "this", "these", "were", "was", "are", "has", "have",
         "study", "studies", "paper", "review", "research", "results", "using", "used", "based", "effect",
         "effects", "group", "data", "analysis", "findings", "however", "also", "can", "may", "not", "but",
-        "into", "over", "under", "than", "more", "less", "new", "novel", "approach"}
+        "into", "over", "under", "than", "more", "less", "new", "novel", "approach",
+        "cell", "cells", "primary", "cohort", "cohorts", "learning", "patients", "patient", "samples", "sample",
+        "therapy", "therapies", "treatment", "treatments", "clinical", "disease", "outcomes", "outcome"}
 OPEN_QUESTION_CUES = ("future research", "remains unclear", "remain unclear", "further study", "further research",
                       "not well understood", "limited evidence", "needs further", "open question", "尚未", "仍需",
                       "有待", "尚不明确", "未来研究")
@@ -185,7 +187,7 @@ def series_for(records, term):
     return dict(sorted(series.items()))
 
 
-def lifecycle(series, low, high, dormant_gap=3, growth_factor=2.0):
+def lifecycle(series, low, high, dormant_gap=3, growth_factor=2.0, half_counts=None, min_half=3):
     if not series:
         return "absent", "no dated record contains this term"
     years = list(series.keys())
@@ -194,14 +196,26 @@ def lifecycle(series, low, high, dormant_gap=3, growth_factor=2.0):
     midpoint = low + (high - low) / 2.0
     early = sum(count for year, count in series.items() if year <= midpoint)
     late = sum(count for year, count in series.items() if year > midpoint)
+    early_records, late_records = half_counts if half_counts else (None, None)
     if last <= high - dormant_gap and high - low >= 4:
         return "dormant", "last appearance %d, at least %d years before the batch end" % (last, dormant_gap)
     if first >= high - (dormant_gap - 1) and total >= 2 and late > early:
         return "emerging", "first appearance %d with activity in the latest years" % first
     if late >= growth_factor * max(1, early) and late >= 2:
-        return "growing", "second-half mentions (%d) at least %.0fx the first half (%d)" % (late, growth_factor, early)
+        if early_records is None or late_records is None or min(early_records, late_records) >= min_half:
+            return "growing", "second-half mentions (%d) at least %.0fx the first half (%d)" % (late, growth_factor, early)
+        return ("insufficient_data",
+                "second-half mentions (%d) exceed the first half (%d), but a half-window holds fewer than %d dated "
+                "records (early %s, late %s), so a shift cannot be separated from discrete fluctuation"
+                % (late, early, min_half, early_records, late_records))
     if early >= growth_factor * max(1, late) and early >= 2:
-        return "declining", "first-half mentions (%d) at least %.0fx the second half (%d)" % (early, growth_factor, late)
+        if late >= 2 and (early_records is None or late_records is None
+                          or min(early_records, late_records) >= min_half):
+            return "declining", "first-half mentions (%d) at least %.0fx the second half (%d)" % (early, growth_factor, late)
+        return ("insufficient_data",
+                "first-half mentions (%d) exceed the second half (%d), but the late half holds only %d mention(s) "
+                "across %s dated record(s), so a decline cannot be separated from discrete fluctuation"
+                % (early, late, late, late_records))
     return "stable", "activity spread across the period without a clear shift"
 
 
@@ -221,7 +235,8 @@ from difflib import get_close_matches
 sys.dont_write_bytecode = True
 
 STAGE_BY_LIFECYCLE = {"emerging": "appear", "growing": "grow", "stable": "stable",
-                      "declining": "decline", "dormant": "dormant", "absent": "absent"}
+                      "declining": "decline", "dormant": "dormant", "absent": "absent",
+                      "insufficient_data": "not_determinable"}
 
 
 def load_policy():
@@ -256,6 +271,20 @@ def excerpt(text, limit):
 
 def text_of(record):
     return record["abstract"] or record["title"]
+
+
+def clean_window(text, start, end):
+    """Snap a slice to word and sentence boundaries so quotes never start or end mid-word."""
+    text = norm_space(text)
+    start = max(0, min(start, len(text)))
+    end = max(start, min(end, len(text)))
+    while start > 0 and text[start - 1] not in " .;:!?":
+        start -= 1
+    while end < len(text) and text[end] not in " .;:!?":
+        end += 1
+    if end < len(text) and text[end] in ".;!?":
+        end += 1
+    return text[start:end].strip()
 
 
 def build_manifest(root, limit, hash_bytes):
@@ -314,24 +343,68 @@ def retrieval_scope(topic, terms, records, dated, years, task_text):
     }
 
 
-def theme_evolution(terms, limit):
-    rows = []
+def load_lexicon():
+    path = Path(__file__).resolve().parent.parent / "assets" / "theme-lexicon.json"
+    try:
+        data = load_json(path)
+    except (OSError, ValueError):
+        data = {}
+    concepts = data.get("concepts") if isinstance(data, dict) else None
+    return concepts if isinstance(concepts, dict) else {}
+
+
+def concept_of(term, concepts):
+    lowered = str(term).lower()
+    for concept in sorted(concepts):
+        data = concepts[concept] if isinstance(concepts[concept], dict) else {}
+        variants = [concept.lower()] + [str(item).lower() for item in data.get("terms") or []]
+        if lowered in variants:
+            return concept
+    return None
+
+
+def theme_evolution(terms, limit, concepts=None):
+    concepts = concepts or {}
+    groups = {}
+    order = []
     for term in terms[:limit]:
-        rows.append({
-            "theme": term["term"],
-            "stage": STAGE_BY_LIFECYCLE.get(term["lifecycle"], "stable"),
-            "lifecycle_label": term["lifecycle"],
-            "from_year": term["first_year"],
-            "to_year": term["last_year"],
-            "series": term["series"],
-            "basis": term["basis"],
-            "source_ids": [work["source_id"] for work in term["representative"]],
-            "merge_split": "not_detectable_from_term_counts",
-            "merge_split_note": "appearance, growth, decline and dormancy are measured from the batch; merge and split need term co-occurrence or citation links across a longer window",
-        })
+        concept = concept_of(term["term"], concepts)
+        key = concept or ("term:" + term["term"])
+        if key not in groups:
+            groups[key] = {"concept": concept, "members": []}
+            order.append(key)
+        groups[key]["members"].append(term)
+    rows = []
+    for key in order:
+        group = groups[key]
+        members = group["members"]
+        anchor = sorted(members, key=lambda item: (-item["mentions"], item["term"]))[0]
+        series = {}
+        for member in members:
+            for year, count in member["series"].items():
+                series[year] = series.get(year, 0) + count
+        row = {
+            "theme": group["concept"] or anchor["term"],
+            "concept": group["concept"],
+            "member_terms": [member["term"] for member in members],
+            "merged_synonyms": len(members) > 1,
+            "stage": STAGE_BY_LIFECYCLE.get(anchor["lifecycle"], "stable"),
+            "lifecycle_label": anchor["lifecycle"],
+            "from_year": anchor["first_year"],
+            "to_year": anchor["last_year"],
+            "series": dict(sorted(series.items())),
+            "basis": anchor["basis"],
+            "source_ids": [work["source_id"] for member in members for work in member["representative"]][:5],
+            "merge_split": ("synonyms_merged" if len(members) > 1 else "no_synonym_in_lexicon"),
+            "merge_split_note": ("members were aggregated under one concept using assets/theme-lexicon.json; the "
+                                 "concept-level series is the sum of the member term series" if len(members) > 1
+                                 else "no lexicon synonym was found; the term is reported on its own"),
+        }
+        rows.append(row)
     if rows:
         return rows
     return [{"theme": "no term meets the two-mention threshold",
+             "concept": None, "member_terms": [], "merged_synonyms": False,
              "stage": "not_determinable", "lifecycle_label": "absent",
              "from_year": None, "to_year": None, "series": {},
              "basis": "term series require at least two dated mentions",
@@ -379,43 +452,48 @@ def cooccurrence(dated, terms, years):
 def claim_evidence(topic, records, dated, terms, periods, open_questions, gaps, years, quote_limit):
     claims = []
 
-    def add(category, claim, record, period, source_ids=None):
+    def add(category, claim, record, period, source_ids=None, aggregate=False, table_ref=None):
         quote, truncated = ("", False)
         locator = "/"
         source_ids = list(source_ids or [])
+        if aggregate:
+            claims.append({"category": category, "claim": claim, "source_ids": source_ids,
+                           "locator": None, "quote": None, "quote_verified": None,
+                           "truncated": False, "period": period, "aggregate": True,
+                           "table_ref": table_ref or "result.claim_evidence"})
+            return
         if record is not None:
             quote, truncated = excerpt(text_of(record), quote_limit)
             locator = record["locator"]
         claims.append({"category": category, "claim": claim, "source_ids": source_ids,
                        "locator": locator, "quote": quote,
                        "quote_verified": bool(record is not None and quote in text_of(record)),
-                       "truncated": truncated, "period": period})
+                       "truncated": truncated, "period": period, "aggregate": False,
+                       "table_ref": table_ref})
 
     if years:
         peak = max(years, key=lambda year: (len([record for record in dated if record["year"] == year]), year))
         peak_records = [record for record in dated if record["year"] == peak]
         add("trend", "the dated batch covers %d-%d with %d records; the peak year is %d with %d record(s)"
             % (years[0], years[-1], len(dated), peak, len(peak_records)),
-            peak_records[0], "%d-%d" % (years[0], years[-1]),
-            [record["source_id"] for record in peak_records])
+            None, "%d-%d" % (years[0], years[-1]),
+            [record["source_id"] for record in dated], aggregate=True,
+            table_ref="result.trend_overview.year_counts")
         midpoint = (years[0] + years[-1]) / 2.0
         early = len([record for record in dated if record["year"] <= midpoint])
         late = len(dated) - early
         direction = "rose" if late > early else ("fell" if late < early else "held")
-        latest = sorted(dated, key=lambda item: (item["year"], item["source_id"]))[-1]
         add("trend", "batch output %s between the two halves of the window (%d -> %d dated records)"
-            % (direction, early, late), latest, "%d-%d" % (years[0], years[-1]))
+            % (direction, early, late), None, "%d-%d" % (years[0], years[-1]),
+            [record["source_id"] for record in dated], aggregate=True,
+            table_ref="result.trend_overview.year_counts")
     for term in terms:
         if term["lifecycle"] in ("emerging", "growing", "declining", "dormant") and term["representative"]:
             work = term["representative"][0]
-            record = None
-            for candidate in dated:
-                if candidate["source_id"] == work["source_id"]:
-                    record = candidate
-                    break
             add("evolution", "'%s' is %s in this batch (%s)" % (term["term"], term["lifecycle"], term["basis"]),
-                record, "%s-%s" % (term["first_year"], term["last_year"]),
-                [work["source_id"] for work in term["representative"]])
+                None, "%s-%s" % (term["first_year"], term["last_year"]),
+                [item["source_id"] for item in term["representative"]], aggregate=True,
+                table_ref="result.terms.%s.series" % term["term"])
     for period in periods:
         if period["works"]:
             top = period["works"][0]
@@ -435,10 +513,11 @@ def claim_evidence(topic, records, dated, terms, periods, open_questions, gaps, 
                 break
         add("gap", "a supplied record raises an open question via '%s'" % question["cue"],
             record, "%s" % (record["year"] if record and record["year"] else "undated"), [question["source_id"]])
-    for gap in gaps[:3]:
+    for index, gap in enumerate(gaps[:3]):
         anchor = dated[-1] if dated else None
-        add("gap", gap["basis"], anchor, "%d-%d" % (years[0], years[-1]) if years else "no dated period",
-            [anchor["source_id"]] if anchor else [])
+        add("gap", gap["basis"], None, "%d-%d" % (years[0], years[-1]) if years else "no dated period",
+            [anchor["source_id"]] if anchor else [], aggregate=True,
+            table_ref="result.research_gaps.%d" % index)
     if not claims:
         claims.append({"category": "trend", "claim": "no dated claim can be made from this batch",
                        "source_ids": [], "locator": "/", "quote": "", "quote_verified": False,
@@ -446,23 +525,44 @@ def claim_evidence(topic, records, dated, terms, periods, open_questions, gaps, 
     return claims
 
 
-def representative_selection(bins, terms):
+def representative_selection(bins, terms, dated):
     rows = []
     for span in bins:
+        members = [record for record in dated if span["from"] <= record["year"] <= span["to"]]
         stages = []
         for term in terms:
             if any(span["from"] <= year <= span["to"] for year in term["series"]):
                 stages.append(term["lifecycle"])
+        ranked = sorted(members, key=lambda item: (-item["citations"], item["year"], item["source_id"]))
+        chosen = ranked[0] if ranked else None
+        if chosen is None:
+            representative = None
+            reason = "no dated record falls in this period"
+        else:
+            if chosen["citations"]:
+                reason = "highest in-batch citation count (%s) among %d dated record(s) in this period" % (
+                    chosen["citations"], len(members))
+            else:
+                reason = ("no citation counts are supplied, so the earliest record by year then source id is the "
+                          "in-batch anchor among %d dated record(s)" % len(members))
+            representative = {"source_id": chosen["source_id"], "title": chosen["title"], "year": chosen["year"],
+                              "citations_in_batch": chosen["citations"], "locator": chosen["locator"],
+                              "reason": reason}
         rows.append({
             "period": span["label"],
-            "rule": "highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+            "records_in_period": len(members),
+            "representative_source_id": representative["source_id"] if representative else None,
+            "representative": representative,
+            "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
             "covered_stages": sorted(set(stages)) if stages else "no term series in this period",
+            "covered_sources": [record["source_id"] for record in ranked[:3]],
             "known_omissions": "undated records and terms mentioned only once are not represented",
         })
     if rows:
         return rows
-    return [{"period": "no dated period", "rule": "not_applicable",
-             "covered_stages": "not_applicable",
+    return [{"period": "no dated period", "records_in_period": 0, "representative_source_id": None,
+             "representative": None, "rule": "not_applicable",
+             "covered_stages": "not_applicable", "covered_sources": [],
              "known_omissions": "no record carries a publication year"}]
 
 
@@ -652,14 +752,31 @@ def build_payload(case, task_text, input_root=None):
     candidates = [term for term, count in sorted(term_freq.items(), key=lambda item: (-item[1], item[0]))
                   if count >= 2][:term_limit]
 
+    half_early = half_late = 0
+    if years:
+        midpoint_year = (low + high) / 2.0
+        half_early = len([record for record in dated if record["year"] <= midpoint_year])
+        half_late = len(dated) - half_early
+
     terms = []
     for term in candidates:
         series = series_for(dated, term)
-        label, basis = lifecycle(series, low, high, dormant_gap, growth_factor) if years else ("absent", "no dated records")
+        label, basis = lifecycle(series, low, high, dormant_gap, growth_factor,
+                                 (half_early, half_late)) if years else ("absent", "no dated records")
         entries = [record for record in dated if term in (record["title"] + " " + record["abstract"]).lower()]
+        total_mentions = sum(series.values()) if series else 0
+        if total_mentions >= 4 and min(half_early, half_late) >= 3 and label != "insufficient_data":
+            confidence = "high"
+        elif label == "insufficient_data":
+            confidence = "low"
+        elif total_mentions >= 2:
+            confidence = "medium"
+        else:
+            confidence = "low"
         terms.append({
             "term": term,
             "mentions": term_freq[term],
+            "confidence": confidence,
             "first_year": min(series) if series else None,
             "last_year": max(series) if series else None,
             "series": series,
@@ -674,24 +791,29 @@ def build_payload(case, task_text, input_root=None):
         })
 
     bins = period_bins(years)
+    representation = representative_selection(bins, terms, dated)
     periods = []
-    for span in bins:
+    for index, span in enumerate(bins):
         members = [record for record in dated if span["from"] <= record["year"] <= span["to"]]
         top = sorted(members, key=lambda item: (-item["citations"], item["year"], item["source_id"]))[:3]
+        rep = representation[index] if index < len(representation) else {}
         periods.append({"period": span["label"], "records": len(members),
+                        "representative": rep.get("representative"),
                         "works": [{"source_id": record["source_id"], "title": record["title"],
                                    "year": record["year"], "citations_in_batch": record["citations"]} for record in top],
-                        "selection_rule": "highest citation count within the batch, ties by source id"})
+                        "selection_rule": "exactly one representative (highest in-batch citations, ties by year then source id); works lists the top three for context only"})
 
     open_questions = []
     for record in records:
         text = (record["title"] + " " + record["abstract"]).lower()
         for cue in OPEN_QUESTION_CUES:
             if cue in text:
+                source = record["abstract"] or record["title"]
                 position = text.find(cue)
-                quote, _truncated = excerpt((record["abstract"] or record["title"])[max(0, position - 80):position + 160], quote_limit)
+                window, _truncated = excerpt(clean_window(source, position - 80, position + 160), quote_limit)
                 open_questions.append({"source_id": record["source_id"], "locator": record["locator"],
-                                       "cue": cue, "quote": quote, "year": record["year"]})
+                                       "cue": cue, "quote": window, "year": record["year"],
+                                       "quote_verified": bool(window) and window in source})
                 break
 
     gaps = []
@@ -759,10 +881,10 @@ def build_payload(case, task_text, input_root=None):
         "research_gaps": gaps,
         "evidence_matrix": evidence_matrix(records, quote_limit),
         "retrieval_scope": retrieval_scope(topic, terms, records, dated, years, task_text),
-        "theme_evolution": theme_evolution(terms, term_limit),
+        "theme_evolution": theme_evolution(terms, term_limit, load_lexicon()),
         "cooccurrence": pairs,
         "claim_evidence": claims,
-        "representative_selection": representative_selection(bins, terms),
+        "representative_selection": representation,
         "gap_exclusion": gap_exclusion(gaps, dated, terms, years),
         "needs_human_confirmation": needs_human_confirmation(records, dated, terms, years, open_questions),
         "synthesis": synthesis(topic, records, dated, years, terms, gaps),
@@ -1012,6 +1134,59 @@ def resolve_inputs(value):
     return path, path.parent
 
 
+def write_artifacts(out_dir, payload):
+    """Write a human-readable trend report next to result.json."""
+    result = payload.get("result") if isinstance(payload.get("result"), dict) else {}
+    if not result:
+        return []
+    target = Path(out_dir)
+    try:
+        target.mkdir(parents=True, exist_ok=True)
+    except OSError:
+        return []
+    overview = result.get("trend_overview") or {}
+    lines = ["# Research frontier and theme evolution", "",
+             "Topic: %s | Status: %s" % (result.get("topic") or "not stated", payload.get("status")), "",
+             "## 1. Trend overview", "",
+             "- Dated records: %s of %s | Year range: %s" % (overview.get("dated_records"), overview.get("records"),
+                                                             overview.get("year_range")),
+             "- Peak year: %s" % overview.get("peak_year"),
+             "- Note: %s" % overview.get("growth_note"), "",
+             "| year | records |", "|---|---|"]
+    for year, count in sorted((overview.get("year_counts") or {}).items()):
+        lines.append("| %s | %s |" % (year, count))
+    lines += ["", "## 2. Theme evolution", "",
+              "| theme | members | lifecycle | stage | confidence |", "|---|---|---|---|---|"]
+    confidence = {}
+    for term in result.get("terms") or []:
+        confidence[term.get("term")] = term.get("confidence")
+    for row in result.get("theme_evolution") or []:
+        members = row.get("member_terms") or [row.get("theme")]
+        level = confidence.get((row.get("member_terms") or [None])[0]) or "n/a"
+        lines.append("| %s | %s | %s | %s | %s |" % (row.get("theme"), ", ".join(members), row.get("lifecycle_label"),
+                                                     row.get("stage"), level))
+    lines += ["", "## 3. Representative work per period", "",
+              "| period | records | representative | year | reason |", "|---|---|---|---|---|"]
+    for row in result.get("representative_selection") or []:
+        rep = row.get("representative") or {}
+        lines.append("| %s | %s | %s | %s | %s |" % (row.get("period"), row.get("records_in_period"),
+                                                     rep.get("source_id") or "none", rep.get("year") or "",
+                                                     rep.get("reason") or row.get("rule")))
+    lines += ["", "## 4. Claims and evidence binding", ""]
+    for claim in (result.get("claim_evidence") or [])[:8]:
+        anchor = "aggregate table: %s" % claim.get("table_ref") if claim.get("aggregate") else str(claim.get("locator"))
+        lines.append("- [%s] %s (%s)" % (claim.get("category"), claim.get("claim"), anchor))
+    lines += ["", "## 5. Gaps and open questions", ""]
+    for gap in result.get("research_gaps") or []:
+        lines.append("- Gap (%s): %s" % (gap.get("type"), gap.get("basis")))
+    for question in (result.get("open_questions") or [])[:5]:
+        lines.append("- Open question [%s]: %s" % (question.get("source_id"), question.get("quote")))
+    report_path = target / "report.md"
+    with open(report_path, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(lines) + "\n")
+    return ["report.md"]
+
+
 def write_result(out_path, payload, work_dir):
     for target in (Path(out_path), Path(work_dir) / "result.json"):
         try:
@@ -1068,6 +1243,13 @@ def main(argv=None):
         payload["contract_extras"] = {"error": "%s: %s" % (type(exc).__name__, str(exc)[:200])}
         payload["output_contract_fields"] = {"provided": [], "present": {}}
     written = write_result(out_path, payload, work_dir)
+    try:
+        payload["artifacts"] = write_artifacts(Path(out_path).parent, payload)
+        if payload["artifacts"]:
+            write_result(out_path, payload, work_dir)
+    except BaseException as exc:
+        payload["artifacts"] = []
+        payload["artifact_error"] = "%s: %s" % (type(exc).__name__, str(exc)[:200])
     if not written:
         sys.stderr.write(json.dumps({"status": payload.get("status"), "stage": "write_output",
                                      "message": "result.json could not be written"}, ensure_ascii=False) + "\n")
