@@ -1,0 +1,16 @@
+{
+  "version": "r20-2026-11-25",
+  "note": "Synonym table used to aggregate term-level series into concept-level themes. Only exact lowercase matches against the listed variants are merged; nothing is inferred.",
+  "concepts": {
+    "gene editing": {"terms": ["crispr", "cas9", "base editing", "prime editing", "knockout", "knock-in", "gene editing"]},
+    "cell therapy": {"terms": ["car-t", "cart", "car t", "t-cell therapy", "adoptive transfer", "cell therapy"]},
+    "machine learning": {"terms": ["machine learning", "deep learning", "neural network", "random forest", "gradient boosting"]},
+    "single-cell omics": {"terms": ["single-cell", "scrna-seq", "scrna", "single cell", "single-cell rna"]},
+    "immunotherapy": {"terms": ["checkpoint inhibitor", "pd-1", "pd-l1", "immunotherapy", "ctla-4"]},
+    "metabolic disease": {"terms": ["diabetes", "glycaemia", "glycemia", "hba1c", "insulin resistance"]},
+    "vitamin d": {"terms": ["vitamin d", "cholecalciferol", "25-hydroxyvitamin d"]},
+    "falls": {"terms": ["fall", "falls", "fall rate", "fracture", "fractures"]},
+    "microbiome": {"terms": ["microbiome", "microbiota", "gut flora"]},
+    "gene expression": {"terms": ["transcriptome", "transcriptomic", "rna-seq", "expression profile"]}
+  }
+}
