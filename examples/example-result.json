@@ -1,0 +1,2861 @@
+{
+  "case_id": "demo-trend-001",
+  "status": "success",
+  "result": {
+    "topic": "CAR-T persistence and CRISPR screening",
+    "trend_overview": {
+      "records": 8,
+      "identified_records": 8,
+      "duplicates_removed": 0,
+      "dated_records": 7,
+      "year_range": [
+        2019,
+        2025
+      ],
+      "year_counts": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 2,
+        "2023": 1,
+        "2024": 1,
+        "2025": 1
+      },
+      "peak_year": 2021,
+      "growth_note": "counts are absolute within the batch; no normalisation by database size is possible"
+    },
+    "flow": {
+      "identified": 8,
+      "duplicates": 0,
+      "unique": 8,
+      "dated": 7,
+      "undated": 1
+    },
+    "terms": [
+      {
+        "term": "car-t",
+        "mentions": 5,
+        "confidence": "low",
+        "first_year": 2019,
+        "last_year": 2023,
+        "series": {
+          "2019": 1,
+          "2020": 1,
+          "2021": 2,
+          "2023": 1
+        },
+        "lifecycle": "insufficient_data",
+        "basis": "first-half mentions (4) exceed the second half (1), but the late half holds only 1 mention(s) across 3 dated record(s), so a decline cannot be separated from discrete fluctuation",
+        "bursts": [
+          {
+            "year": 2021,
+            "count": 2
+          }
+        ],
+        "representative": [
+          {
+            "source_id": "R3",
+            "title": "CRISPR screen for CAR-T persistence regulators",
+            "year": 2021,
+            "citations_in_batch": 60,
+            "locator": "/records/2",
+            "case_locator": "/records/2",
+            "file": null
+          },
+          {
+            "source_id": "R1",
+            "title": "CAR-T persistence and cytokine release",
+            "year": 2019,
+            "citations_in_batch": 40,
+            "locator": "/records/0",
+            "case_locator": "/records/0",
+            "file": null
+          },
+          {
+            "source_id": "R2",
+            "title": "Cytokine profiles in CAR-T persistence",
+            "year": 2020,
+            "citations_in_batch": 25,
+            "locator": "/records/1",
+            "case_locator": "/records/1",
+            "file": null
+          }
+        ]
+      },
+      {
+        "term": "persistence",
+        "mentions": 5,
+        "confidence": "low",
+        "first_year": 2019,
+        "last_year": 2023,
+        "series": {
+          "2019": 1,
+          "2020": 1,
+          "2021": 2,
+          "2023": 1
+        },
+        "lifecycle": "insufficient_data",
+        "basis": "first-half mentions (4) exceed the second half (1), but the late half holds only 1 mention(s) across 3 dated record(s), so a decline cannot be separated from discrete fluctuation",
+        "bursts": [
+          {
+            "year": 2021,
+            "count": 2
+          }
+        ],
+        "representative": [
+          {
+            "source_id": "R3",
+            "title": "CRISPR screen for CAR-T persistence regulators",
+            "year": 2021,
+            "citations_in_batch": 60,
+            "locator": "/records/2",
+            "case_locator": "/records/2",
+            "file": null
+          },
+          {
+            "source_id": "R1",
+            "title": "CAR-T persistence and cytokine release",
+            "year": 2019,
+            "citations_in_batch": 40,
+            "locator": "/records/0",
+            "case_locator": "/records/0",
+            "file": null
+          },
+          {
+            "source_id": "R2",
+            "title": "Cytokine profiles in CAR-T persistence",
+            "year": 2020,
+            "citations_in_batch": 25,
+            "locator": "/records/1",
+            "case_locator": "/records/1",
+            "file": null
+          }
+        ]
+      },
+      {
+        "term": "crispr",
+        "mentions": 3,
+        "confidence": "medium",
+        "first_year": 2021,
+        "last_year": 2025,
+        "series": {
+          "2021": 1,
+          "2024": 1,
+          "2025": 1
+        },
+        "lifecycle": "growing",
+        "basis": "second-half mentions (2) at least 2x the first half (1)",
+        "bursts": [],
+        "representative": [
+          {
+            "source_id": "R3",
+            "title": "CRISPR screen for CAR-T persistence regulators",
+            "year": 2021,
+            "citations_in_batch": 60,
+            "locator": "/records/2",
+            "case_locator": "/records/2",
+            "file": null
+          },
+          {
+            "source_id": "R6",
+            "title": "CRISPR screening with machine learning",
+            "year": 2024,
+            "citations_in_batch": 30,
+            "locator": "/records/5",
+            "case_locator": "/records/5",
+            "file": null
+          },
+          {
+            "source_id": "R7",
+            "title": "Machine learning for CRISPR guide design",
+            "year": 2025,
+            "citations_in_batch": 12,
+            "locator": "/records/6",
+            "case_locator": "/records/6",
+            "file": null
+          }
+        ]
+      },
+      {
+        "term": "screen",
+        "mentions": 3,
+        "confidence": "medium",
+        "first_year": 2021,
+        "last_year": 2025,
+        "series": {
+          "2021": 1,
+          "2024": 1,
+          "2025": 1
+        },
+        "lifecycle": "growing",
+        "basis": "second-half mentions (2) at least 2x the first half (1)",
+        "bursts": [],
+        "representative": [
+          {
+            "source_id": "R3",
+            "title": "CRISPR screen for CAR-T persistence regulators",
+            "year": 2021,
+            "citations_in_batch": 60,
+            "locator": "/records/2",
+            "case_locator": "/records/2",
+            "file": null
+          },
+          {
+            "source_id": "R6",
+            "title": "CRISPR screening with machine learning",
+            "year": 2024,
+            "citations_in_batch": 30,
+            "locator": "/records/5",
+            "case_locator": "/records/5",
+            "file": null
+          },
+          {
+            "source_id": "R7",
+            "title": "Machine learning for CRISPR guide design",
+            "year": 2025,
+            "citations_in_batch": 12,
+            "locator": "/records/6",
+            "case_locator": "/records/6",
+            "file": null
+          }
+        ]
+      },
+      {
+        "term": "cytokine",
+        "mentions": 2,
+        "confidence": "medium",
+        "first_year": 2019,
+        "last_year": 2020,
+        "series": {
+          "2019": 1,
+          "2020": 1
+        },
+        "lifecycle": "dormant",
+        "basis": "last appearance 2020, at least 3 years before the batch end",
+        "bursts": [],
+        "representative": [
+          {
+            "source_id": "R1",
+            "title": "CAR-T persistence and cytokine release",
+            "year": 2019,
+            "citations_in_batch": 40,
+            "locator": "/records/0",
+            "case_locator": "/records/0",
+            "file": null
+          },
+          {
+            "source_id": "R2",
+            "title": "Cytokine profiles in CAR-T persistence",
+            "year": 2020,
+            "citations_in_batch": 25,
+            "locator": "/records/1",
+            "case_locator": "/records/1",
+            "file": null
+          }
+        ]
+      },
+      {
+        "term": "machine",
+        "mentions": 2,
+        "confidence": "medium",
+        "first_year": 2024,
+        "last_year": 2025,
+        "series": {
+          "2024": 1,
+          "2025": 1
+        },
+        "lifecycle": "emerging",
+        "basis": "first appearance 2024 with activity in the latest years",
+        "bursts": [],
+        "representative": [
+          {
+            "source_id": "R6",
+            "title": "CRISPR screening with machine learning",
+            "year": 2024,
+            "citations_in_batch": 30,
+            "locator": "/records/5",
+            "case_locator": "/records/5",
+            "file": null
+          },
+          {
+            "source_id": "R7",
+            "title": "Machine learning for CRISPR guide design",
+            "year": 2025,
+            "citations_in_batch": 12,
+            "locator": "/records/6",
+            "case_locator": "/records/6",
+            "file": null
+          }
+        ]
+      }
+    ],
+    "periods": [
+      {
+        "period": "2019-2020",
+        "period_from": 2019,
+        "period_to": 2020,
+        "records": 2,
+        "basis": "2019-2020 (2019-2020) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "representative": {
+          "source_id": "R1",
+          "title": "CAR-T persistence and cytokine release",
+          "year": 2019,
+          "citations_in_batch": 40,
+          "locator": "/records/0",
+          "case_locator": "/records/0",
+          "file": null,
+          "reason": "highest in-batch citation count (40) among 2 dated record(s) in this period"
+        },
+        "covered_stages": [
+          "dormant",
+          "insufficient_data"
+        ],
+        "works": [
+          {
+            "source_id": "R1",
+            "title": "CAR-T persistence and cytokine release",
+            "year": 2019,
+            "citations_in_batch": 40
+          },
+          {
+            "source_id": "R2",
+            "title": "Cytokine profiles in CAR-T persistence",
+            "year": 2020,
+            "citations_in_batch": 25
+          }
+        ],
+        "selection_rule": "exactly one representative (highest in-batch citations, ties by year then source id); works lists the top three for context only"
+      },
+      {
+        "period": "2021-2022",
+        "period_from": 2021,
+        "period_to": 2022,
+        "records": 2,
+        "basis": "2021-2022 (2021-2022) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "representative": {
+          "source_id": "R3",
+          "title": "CRISPR screen for CAR-T persistence regulators",
+          "year": 2021,
+          "citations_in_batch": 60,
+          "locator": "/records/2",
+          "case_locator": "/records/2",
+          "file": null,
+          "reason": "highest in-batch citation count (60) among 2 dated record(s) in this period"
+        },
+        "covered_stages": [
+          "growing",
+          "insufficient_data"
+        ],
+        "works": [
+          {
+            "source_id": "R3",
+            "title": "CRISPR screen for CAR-T persistence regulators",
+            "year": 2021,
+            "citations_in_batch": 60
+          },
+          {
+            "source_id": "R4",
+            "title": "Long-term persistence of CAR-T cells",
+            "year": 2021,
+            "citations_in_batch": 10
+          }
+        ],
+        "selection_rule": "exactly one representative (highest in-batch citations, ties by year then source id); works lists the top three for context only"
+      },
+      {
+        "period": "2023-2024",
+        "period_from": 2023,
+        "period_to": 2024,
+        "records": 2,
+        "basis": "2023-2024 (2023-2024) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "representative": {
+          "source_id": "R6",
+          "title": "CRISPR screening with machine learning",
+          "year": 2024,
+          "citations_in_batch": 30,
+          "locator": "/records/5",
+          "case_locator": "/records/5",
+          "file": null,
+          "reason": "highest in-batch citation count (30) among 2 dated record(s) in this period"
+        },
+        "covered_stages": [
+          "emerging",
+          "growing",
+          "insufficient_data"
+        ],
+        "works": [
+          {
+            "source_id": "R6",
+            "title": "CRISPR screening with machine learning",
+            "year": 2024,
+            "citations_in_batch": 30
+          },
+          {
+            "source_id": "R5",
+            "title": "Open questions in CAR-T persistence",
+            "year": 2023,
+            "citations_in_batch": 5
+          }
+        ],
+        "selection_rule": "exactly one representative (highest in-batch citations, ties by year then source id); works lists the top three for context only"
+      },
+      {
+        "period": "2025-2025",
+        "period_from": 2025,
+        "period_to": 2025,
+        "records": 1,
+        "basis": "2025-2025 (2025-2025) covers 1 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "representative": {
+          "source_id": "R7",
+          "title": "Machine learning for CRISPR guide design",
+          "year": 2025,
+          "citations_in_batch": 12,
+          "locator": "/records/6",
+          "case_locator": "/records/6",
+          "file": null,
+          "reason": "highest in-batch citation count (12) among 1 dated record(s) in this period"
+        },
+        "covered_stages": [
+          "emerging",
+          "growing"
+        ],
+        "works": [
+          {
+            "source_id": "R7",
+            "title": "Machine learning for CRISPR guide design",
+            "year": 2025,
+            "citations_in_batch": 12
+          }
+        ],
+        "selection_rule": "exactly one representative (highest in-batch citations, ties by year then source id); works lists the top three for context only"
+      }
+    ],
+    "open_questions": [
+      {
+        "source_id": "R5",
+        "locator": "/records/4",
+        "source_locator": null,
+        "cue": "future research",
+        "quote": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+        "year": 2023,
+        "quote_verified": true
+      },
+      {
+        "source_id": "R6",
+        "locator": "/records/5",
+        "source_locator": null,
+        "cue": "remains unclear",
+        "quote": "screen hits in T cells, but the mechanism remains unclear.",
+        "year": 2024,
+        "quote_verified": true
+      }
+    ],
+    "conflicts": [
+      {
+        "type": "candidate_merge",
+        "terms": [
+          "crispr",
+          "machine"
+        ],
+        "records": 2,
+        "handling": "reported as a co-occurrence candidate; it is not a confirmed merge or split"
+      },
+      {
+        "type": "candidate_merge",
+        "terms": [
+          "screen",
+          "machine"
+        ],
+        "records": 2,
+        "handling": "reported as a co-occurrence candidate; it is not a confirmed merge or split"
+      },
+      {
+        "type": "candidate_split",
+        "terms": [
+          "car-t",
+          "cytokine"
+        ],
+        "records": 2,
+        "handling": "reported as a co-occurrence candidate; it is not a confirmed merge or split"
+      }
+    ],
+    "research_gaps": [
+      {
+        "type": "dormant_terms",
+        "basis": "terms with no recent records in this batch: cytokine"
+      },
+      {
+        "type": "batch_coverage",
+        "basis": "absence here reflects batch coverage, not the absence of a field-wide gap"
+      }
+    ],
+    "evidence_matrix": [
+      {
+        "source_id": "R1",
+        "locator": "/records/0",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/0",
+        "file": null,
+        "source_paragraph": null,
+        "title": "CAR-T persistence and cytokine release",
+        "year": 2019,
+        "venue": "Demo Journal",
+        "doi": "10.0000/demo.r1",
+        "duplicate_of": null,
+        "citations_in_batch": 40,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "CAR-T persistence correlated with cytokine release in an early cohort of patients.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "CAR-T persistence correlated with cytokine release in an early cohort of patients.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R2",
+        "locator": "/records/1",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/1",
+        "file": null,
+        "source_paragraph": null,
+        "title": "Cytokine profiles in CAR-T persistence",
+        "year": 2020,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 25,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "Cytokine profiles tracked CAR-T persistence over one year in a cohort.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "Cytokine profiles tracked CAR-T persistence over one year in a cohort.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R3",
+        "locator": "/records/2",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/2",
+        "file": null,
+        "source_paragraph": null,
+        "title": "CRISPR screen for CAR-T persistence regulators",
+        "year": 2021,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 60,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R4",
+        "locator": "/records/3",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/3",
+        "file": null,
+        "source_paragraph": null,
+        "title": "Long-term persistence of CAR-T cells",
+        "year": 2021,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 10,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "Long-term persistence of CAR-T cells was observed in a cohort followed for two years.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "Long-term persistence of CAR-T cells was observed in a cohort followed for two years.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R5",
+        "locator": "/records/4",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/4",
+        "file": null,
+        "source_paragraph": null,
+        "title": "Open questions in CAR-T persistence",
+        "year": 2023,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 5,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R6",
+        "locator": "/records/5",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/5",
+        "file": null,
+        "source_paragraph": null,
+        "title": "CRISPR screening with machine learning",
+        "year": 2024,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 30,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R7",
+        "locator": "/records/6",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/6",
+        "file": null,
+        "source_paragraph": null,
+        "title": "Machine learning for CRISPR guide design",
+        "year": 2025,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 12,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": true,
+        "exclusion_reason": null,
+        "quote": "Machine learning improved CRISPR guide design and screen efficiency in primary cells.",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "Machine learning improved CRISPR guide design and screen efficiency in primary cells.",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      },
+      {
+        "source_id": "R8",
+        "locator": "/records/7",
+        "locator_kind": "case_pointer",
+        "case_locator": "/records/7",
+        "file": null,
+        "source_paragraph": null,
+        "title": "Commentary on CAR-T manufacturing",
+        "year": null,
+        "venue": "",
+        "doi": "",
+        "duplicate_of": null,
+        "citations_in_batch": 0,
+        "compared_fields": [
+          "year",
+          "title",
+          "abstract",
+          "citations_in_batch"
+        ],
+        "included_in_series": false,
+        "exclusion_reason": "no parsable publication year, so the record is excluded from every year series",
+        "quote": "Commentary on CAR-T manufacturing",
+        "quote_verified": true,
+        "truncated": false,
+        "case_quote": "Commentary on CAR-T manufacturing",
+        "case_quote_verified": true,
+        "case_quote_truncated": false
+      }
+    ],
+    "source_materials": [],
+    "coverage": {
+      "level": "abstract_only",
+      "records_with_source_text": 0,
+      "records_with_abstract": 7,
+      "material_files": 0,
+      "parsed_material_files": 0,
+      "unparsed_materials": [],
+      "limits": [
+        "abstract_only: quotes come from the supplied abstract field; claims about methods, samples or mechanisms need the full text",
+        "metadata_only: only titles and identifiers are available; no abstract-level evidence is claimed",
+        "full_text: quotes come from the matched source paragraph (locator S<file>#P<paragraph>)"
+      ]
+    },
+    "retrieval_scope": {
+      "query": "CAR-T persistence and CRISPR screening",
+      "query_basis": "topic text plus the highest-frequency terms in the batch; no search engine or network call is used",
+      "queries": [
+        {
+          "query_id": "Q1",
+          "query": "\"car-t\" OR \"persistence\" OR \"crispr\" OR \"screen\"",
+          "fields": [
+            "title",
+            "abstract"
+          ],
+          "date_range": [
+            2019,
+            2025
+          ],
+          "languages": [
+            "en"
+          ],
+          "hits": 8,
+          "hit_source_ids": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6",
+            "R7",
+            "R8"
+          ],
+          "purpose": "recall any tracked term in title/abstract",
+          "executed_online": false,
+          "hit_basis": "keyword match counted against the supplied records; the query was not executed against an online index"
+        },
+        {
+          "query_id": "Q2",
+          "query": "\"car-t\" AND \"persistence\"",
+          "fields": [
+            "title",
+            "abstract"
+          ],
+          "date_range": [
+            2019,
+            2025
+          ],
+          "languages": [
+            "en"
+          ],
+          "hits": 5,
+          "hit_source_ids": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5"
+          ],
+          "purpose": "precision pairing of the two leading terms",
+          "executed_online": false,
+          "hit_basis": "keyword match counted against the supplied records; the query was not executed against an online index"
+        },
+        {
+          "query_id": "Q3",
+          "query": "\"screening\" AND \"car-t\"",
+          "fields": [
+            "title",
+            "abstract"
+          ],
+          "date_range": [
+            2019,
+            2025
+          ],
+          "languages": [
+            "en"
+          ],
+          "hits": 0,
+          "hit_source_ids": [],
+          "purpose": "topic words combined with the leading term",
+          "executed_online": false,
+          "hit_basis": "keyword match counted against the supplied records; the query was not executed against an online index"
+        }
+      ],
+      "fields": [
+        "title",
+        "abstract"
+      ],
+      "date_range": [
+        2019,
+        2025
+      ],
+      "languages": [
+        "en"
+      ],
+      "hits_per_query": [
+        {
+          "query_id": "Q1",
+          "hits": 8,
+          "basis": "counted on the supplied records; not executed online"
+        },
+        {
+          "query_id": "Q2",
+          "hits": 5,
+          "basis": "counted on the supplied records; not executed online"
+        },
+        {
+          "query_id": "Q3",
+          "hits": 0,
+          "basis": "counted on the supplied records; not executed online"
+        }
+      ],
+      "execution_note": "queries are declared for review and evaluated against this batch only; no online index was queried",
+      "inclusion": "records supplied in the case file that carry a title, abstract or DOI; nested record objects are found recursively",
+      "exclusion": [
+        "duplicate records (same DOI, or same normalised title and year) are removed from every year series and reported with duplicate_of",
+        "undated records are excluded from year series, lifecycle labels and period selection, but kept for open-question extraction",
+        "a term needs at least two dated mentions to define a series"
+      ],
+      "batch_size": 8,
+      "deduped_batch_size": 8,
+      "dated_batch_size": 7,
+      "year_range": [
+        2019,
+        2025
+      ],
+      "screened_out": {
+        "duplicates": 0,
+        "undated": 1
+      },
+      "external_search": false,
+      "task_text_used": false
+    },
+    "theme_evolution": [
+      {
+        "theme": "cell therapy",
+        "concept": "cell therapy",
+        "member_terms": [
+          "car-t"
+        ],
+        "merged_synonyms": false,
+        "stage": "not_determinable",
+        "lifecycle_label": "insufficient_data",
+        "from_year": 2019,
+        "to_year": 2023,
+        "series": {
+          "2019": 1,
+          "2020": 1,
+          "2021": 2,
+          "2023": 1
+        },
+        "basis": "first-half mentions (4) exceed the second half (1), but the late half holds only 1 mention(s) across 3 dated record(s), so a decline cannot be separated from discrete fluctuation",
+        "source_ids": [
+          "R3",
+          "R1",
+          "R2"
+        ],
+        "merge_rule": {
+          "rule": "fallback_synonym_merge",
+          "source": "lexicon"
+        },
+        "merge_basis": "no input concept rule matched; the fallback table assets/theme-lexicon.json maps these members to 'cell therapy' and the theme series is their sum",
+        "merge_evidence": [
+          {
+            "term": "car-t",
+            "mentions": 5,
+            "first_year": 2019,
+            "last_year": 2023
+          }
+        ],
+        "merge_split": "no_synonym_in_lexicon",
+        "merge_split_note": "members were aggregated with the fallback lexicon (assets/theme-lexicon.json); declare concept_rules in the input to override it"
+      },
+      {
+        "theme": "persistence",
+        "concept": null,
+        "member_terms": [
+          "persistence"
+        ],
+        "merged_synonyms": false,
+        "stage": "not_determinable",
+        "lifecycle_label": "insufficient_data",
+        "from_year": 2019,
+        "to_year": 2023,
+        "series": {
+          "2019": 1,
+          "2020": 1,
+          "2021": 2,
+          "2023": 1
+        },
+        "basis": "first-half mentions (4) exceed the second half (1), but the late half holds only 1 mention(s) across 3 dated record(s), so a decline cannot be separated from discrete fluctuation",
+        "source_ids": [
+          "R3",
+          "R1",
+          "R2"
+        ],
+        "merge_rule": {
+          "rule": "term_level",
+          "source": "term-level"
+        },
+        "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+        "merge_evidence": [
+          {
+            "term": "persistence",
+            "mentions": 5,
+            "first_year": 2019,
+            "last_year": 2023
+          }
+        ],
+        "merge_split": "no_synonym_in_lexicon",
+        "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+      },
+      {
+        "theme": "gene editing",
+        "concept": "gene editing",
+        "member_terms": [
+          "crispr"
+        ],
+        "merged_synonyms": false,
+        "stage": "grow",
+        "lifecycle_label": "growing",
+        "from_year": 2021,
+        "to_year": 2025,
+        "series": {
+          "2021": 1,
+          "2024": 1,
+          "2025": 1
+        },
+        "basis": "second-half mentions (2) at least 2x the first half (1)",
+        "source_ids": [
+          "R3",
+          "R6",
+          "R7"
+        ],
+        "merge_rule": {
+          "rule": "fallback_synonym_merge",
+          "source": "lexicon"
+        },
+        "merge_basis": "no input concept rule matched; the fallback table assets/theme-lexicon.json maps these members to 'gene editing' and the theme series is their sum",
+        "merge_evidence": [
+          {
+            "term": "crispr",
+            "mentions": 3,
+            "first_year": 2021,
+            "last_year": 2025
+          }
+        ],
+        "merge_split": "no_synonym_in_lexicon",
+        "merge_split_note": "members were aggregated with the fallback lexicon (assets/theme-lexicon.json); declare concept_rules in the input to override it"
+      },
+      {
+        "theme": "screen",
+        "concept": null,
+        "member_terms": [
+          "screen"
+        ],
+        "merged_synonyms": false,
+        "stage": "grow",
+        "lifecycle_label": "growing",
+        "from_year": 2021,
+        "to_year": 2025,
+        "series": {
+          "2021": 1,
+          "2024": 1,
+          "2025": 1
+        },
+        "basis": "second-half mentions (2) at least 2x the first half (1)",
+        "source_ids": [
+          "R3",
+          "R6",
+          "R7"
+        ],
+        "merge_rule": {
+          "rule": "term_level",
+          "source": "term-level"
+        },
+        "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+        "merge_evidence": [
+          {
+            "term": "screen",
+            "mentions": 3,
+            "first_year": 2021,
+            "last_year": 2025
+          }
+        ],
+        "merge_split": "no_synonym_in_lexicon",
+        "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+      },
+      {
+        "theme": "cytokine",
+        "concept": null,
+        "member_terms": [
+          "cytokine"
+        ],
+        "merged_synonyms": false,
+        "stage": "dormant",
+        "lifecycle_label": "dormant",
+        "from_year": 2019,
+        "to_year": 2020,
+        "series": {
+          "2019": 1,
+          "2020": 1
+        },
+        "basis": "last appearance 2020, at least 3 years before the batch end",
+        "source_ids": [
+          "R1",
+          "R2"
+        ],
+        "merge_rule": {
+          "rule": "term_level",
+          "source": "term-level"
+        },
+        "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+        "merge_evidence": [
+          {
+            "term": "cytokine",
+            "mentions": 2,
+            "first_year": 2019,
+            "last_year": 2020
+          }
+        ],
+        "merge_split": "no_synonym_in_lexicon",
+        "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+      },
+      {
+        "theme": "machine",
+        "concept": null,
+        "member_terms": [
+          "machine"
+        ],
+        "merged_synonyms": false,
+        "stage": "appear",
+        "lifecycle_label": "emerging",
+        "from_year": 2024,
+        "to_year": 2025,
+        "series": {
+          "2024": 1,
+          "2025": 1
+        },
+        "basis": "first appearance 2024 with activity in the latest years",
+        "source_ids": [
+          "R6",
+          "R7"
+        ],
+        "merge_rule": {
+          "rule": "term_level",
+          "source": "term-level"
+        },
+        "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+        "merge_evidence": [
+          {
+            "term": "machine",
+            "mentions": 2,
+            "first_year": 2024,
+            "last_year": 2025
+          }
+        ],
+        "merge_split": "no_synonym_in_lexicon",
+        "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+      }
+    ],
+    "concept_rules": [],
+    "cooccurrence": [
+      {
+        "terms": [
+          "car-t",
+          "cytokine"
+        ],
+        "records": 2,
+        "early_half": 2,
+        "late_half": 0,
+        "label": "candidate_split",
+        "source_ids": [
+          "R1",
+          "R2"
+        ],
+        "note": "label is a co-occurrence candidate, not a confirmed merge or split"
+      },
+      {
+        "terms": [
+          "crispr",
+          "machine"
+        ],
+        "records": 2,
+        "early_half": 0,
+        "late_half": 2,
+        "label": "candidate_merge",
+        "source_ids": [
+          "R6",
+          "R7"
+        ],
+        "note": "label is a co-occurrence candidate, not a confirmed merge or split"
+      },
+      {
+        "terms": [
+          "persistence",
+          "cytokine"
+        ],
+        "records": 2,
+        "early_half": 2,
+        "late_half": 0,
+        "label": "candidate_split",
+        "source_ids": [
+          "R1",
+          "R2"
+        ],
+        "note": "label is a co-occurrence candidate, not a confirmed merge or split"
+      },
+      {
+        "terms": [
+          "screen",
+          "machine"
+        ],
+        "records": 2,
+        "early_half": 0,
+        "late_half": 2,
+        "label": "candidate_merge",
+        "source_ids": [
+          "R6",
+          "R7"
+        ],
+        "note": "label is a co-occurrence candidate, not a confirmed merge or split"
+      },
+      {
+        "terms": [
+          "car-t",
+          "persistence"
+        ],
+        "records": 5,
+        "early_half": 4,
+        "late_half": 1,
+        "label": "persistent_cooccurrence",
+        "source_ids": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5"
+        ],
+        "note": "label is a co-occurrence candidate, not a confirmed merge or split"
+      },
+      {
+        "terms": [
+          "crispr",
+          "screen"
+        ],
+        "records": 3,
+        "early_half": 1,
+        "late_half": 2,
+        "label": "persistent_cooccurrence",
+        "source_ids": [
+          "R3",
+          "R6",
+          "R7"
+        ],
+        "note": "label is a co-occurrence candidate, not a confirmed merge or split"
+      }
+    ],
+    "claim_evidence": [
+      {
+        "category": "trend",
+        "claim": "the dated batch covers 2019-2025 with 7 records; the peak year is 2021 with 2 record(s)",
+        "source_ids": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6",
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2019-2025",
+        "aggregate": true,
+        "table_ref": "result.trend_overview.year_counts",
+        "evidence_ids": []
+      },
+      {
+        "category": "trend",
+        "claim": "batch output fell between the two halves of the window (4 -> 3 dated records)",
+        "source_ids": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6",
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2019-2025",
+        "aggregate": true,
+        "table_ref": "result.trend_overview.year_counts",
+        "evidence_ids": []
+      },
+      {
+        "category": "evolution",
+        "claim": "'crispr' is growing in this batch (second-half mentions (2) at least 2x the first half (1))",
+        "source_ids": [
+          "R3",
+          "R6",
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2021-2025",
+        "aggregate": true,
+        "table_ref": "result.terms.crispr.series",
+        "evidence_ids": []
+      },
+      {
+        "category": "evolution",
+        "claim": "'screen' is growing in this batch (second-half mentions (2) at least 2x the first half (1))",
+        "source_ids": [
+          "R3",
+          "R6",
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2021-2025",
+        "aggregate": true,
+        "table_ref": "result.terms.screen.series",
+        "evidence_ids": []
+      },
+      {
+        "category": "evolution",
+        "claim": "'cytokine' is dormant in this batch (last appearance 2020, at least 3 years before the batch end)",
+        "source_ids": [
+          "R1",
+          "R2"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2019-2020",
+        "aggregate": true,
+        "table_ref": "result.terms.cytokine.series",
+        "evidence_ids": []
+      },
+      {
+        "category": "evolution",
+        "claim": "'machine' is emerging in this batch (first appearance 2024 with activity in the latest years)",
+        "source_ids": [
+          "R6",
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2024-2025",
+        "aggregate": true,
+        "table_ref": "result.terms.machine.series",
+        "evidence_ids": []
+      },
+      {
+        "category": "representative",
+        "claim": "2019-2020 is represented by R1 (40 in-batch citations)",
+        "source_ids": [
+          "R1",
+          "R2"
+        ],
+        "locator": "/records/0",
+        "source_locator": null,
+        "case_locator": "/records/0",
+        "quote": "CAR-T persistence correlated with cytokine release in an early cohort of patients.",
+        "quote_verified": true,
+        "truncated": false,
+        "period": "2019-2020",
+        "aggregate": false,
+        "table_ref": null,
+        "evidence_ids": [
+          "E01"
+        ]
+      },
+      {
+        "category": "representative",
+        "claim": "2021-2022 is represented by R3 (60 in-batch citations)",
+        "source_ids": [
+          "R3",
+          "R4"
+        ],
+        "locator": "/records/2",
+        "source_locator": null,
+        "case_locator": "/records/2",
+        "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+        "quote_verified": true,
+        "truncated": false,
+        "period": "2021-2022",
+        "aggregate": false,
+        "table_ref": null,
+        "evidence_ids": [
+          "E03"
+        ]
+      },
+      {
+        "category": "representative",
+        "claim": "2023-2024 is represented by R6 (30 in-batch citations)",
+        "source_ids": [
+          "R6",
+          "R5"
+        ],
+        "locator": "/records/5",
+        "source_locator": null,
+        "case_locator": "/records/5",
+        "quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+        "quote_verified": true,
+        "truncated": false,
+        "period": "2023-2024",
+        "aggregate": false,
+        "table_ref": null,
+        "evidence_ids": [
+          "E06"
+        ]
+      },
+      {
+        "category": "representative",
+        "claim": "2025-2025 is represented by R7 (12 in-batch citations)",
+        "source_ids": [
+          "R7"
+        ],
+        "locator": "/records/6",
+        "source_locator": null,
+        "case_locator": "/records/6",
+        "quote": "Machine learning improved CRISPR guide design and screen efficiency in primary cells.",
+        "quote_verified": true,
+        "truncated": false,
+        "period": "2025-2025",
+        "aggregate": false,
+        "table_ref": null,
+        "evidence_ids": [
+          "E07"
+        ]
+      },
+      {
+        "category": "gap",
+        "claim": "a supplied record raises an open question via 'future research'",
+        "source_ids": [
+          "R5"
+        ],
+        "locator": "/records/4",
+        "source_locator": null,
+        "case_locator": "/records/4",
+        "quote": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+        "quote_verified": true,
+        "truncated": false,
+        "period": "2023",
+        "aggregate": false,
+        "table_ref": null,
+        "evidence_ids": [
+          "E05"
+        ]
+      },
+      {
+        "category": "gap",
+        "claim": "a supplied record raises an open question via 'remains unclear'",
+        "source_ids": [
+          "R6"
+        ],
+        "locator": "/records/5",
+        "source_locator": null,
+        "case_locator": "/records/5",
+        "quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+        "quote_verified": true,
+        "truncated": false,
+        "period": "2024",
+        "aggregate": false,
+        "table_ref": null,
+        "evidence_ids": [
+          "E06"
+        ]
+      },
+      {
+        "category": "gap",
+        "claim": "terms with no recent records in this batch: cytokine",
+        "source_ids": [
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2019-2025",
+        "aggregate": true,
+        "table_ref": "result.research_gaps.0",
+        "evidence_ids": []
+      },
+      {
+        "category": "gap",
+        "claim": "absence here reflects batch coverage, not the absence of a field-wide gap",
+        "source_ids": [
+          "R7"
+        ],
+        "locator": null,
+        "quote": null,
+        "quote_verified": null,
+        "truncated": false,
+        "period": "2019-2025",
+        "aggregate": true,
+        "table_ref": "result.research_gaps.1",
+        "evidence_ids": []
+      }
+    ],
+    "representative_selection": [
+      {
+        "period": "2019-2020",
+        "period_from": 2019,
+        "period_to": 2020,
+        "records_in_period": 2,
+        "representative_source_id": "R1",
+        "representative": {
+          "source_id": "R1",
+          "title": "CAR-T persistence and cytokine release",
+          "year": 2019,
+          "citations_in_batch": 40,
+          "locator": "/records/0",
+          "case_locator": "/records/0",
+          "file": null,
+          "reason": "highest in-batch citation count (40) among 2 dated record(s) in this period"
+        },
+        "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+        "basis": "2019-2020 (2019-2020) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "covered_stages": [
+          "dormant",
+          "insufficient_data"
+        ],
+        "covered_sources": [
+          "R1",
+          "R2"
+        ],
+        "known_omissions": "undated records and terms mentioned only once are not represented"
+      },
+      {
+        "period": "2021-2022",
+        "period_from": 2021,
+        "period_to": 2022,
+        "records_in_period": 2,
+        "representative_source_id": "R3",
+        "representative": {
+          "source_id": "R3",
+          "title": "CRISPR screen for CAR-T persistence regulators",
+          "year": 2021,
+          "citations_in_batch": 60,
+          "locator": "/records/2",
+          "case_locator": "/records/2",
+          "file": null,
+          "reason": "highest in-batch citation count (60) among 2 dated record(s) in this period"
+        },
+        "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+        "basis": "2021-2022 (2021-2022) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "covered_stages": [
+          "growing",
+          "insufficient_data"
+        ],
+        "covered_sources": [
+          "R3",
+          "R4"
+        ],
+        "known_omissions": "undated records and terms mentioned only once are not represented"
+      },
+      {
+        "period": "2023-2024",
+        "period_from": 2023,
+        "period_to": 2024,
+        "records_in_period": 2,
+        "representative_source_id": "R6",
+        "representative": {
+          "source_id": "R6",
+          "title": "CRISPR screening with machine learning",
+          "year": 2024,
+          "citations_in_batch": 30,
+          "locator": "/records/5",
+          "case_locator": "/records/5",
+          "file": null,
+          "reason": "highest in-batch citation count (30) among 2 dated record(s) in this period"
+        },
+        "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+        "basis": "2023-2024 (2023-2024) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "covered_stages": [
+          "emerging",
+          "growing",
+          "insufficient_data"
+        ],
+        "covered_sources": [
+          "R6",
+          "R5"
+        ],
+        "known_omissions": "undated records and terms mentioned only once are not represented"
+      },
+      {
+        "period": "2025-2025",
+        "period_from": 2025,
+        "period_to": 2025,
+        "records_in_period": 1,
+        "representative_source_id": "R7",
+        "representative": {
+          "source_id": "R7",
+          "title": "Machine learning for CRISPR guide design",
+          "year": 2025,
+          "citations_in_batch": 12,
+          "locator": "/records/6",
+          "case_locator": "/records/6",
+          "file": null,
+          "reason": "highest in-batch citation count (12) among 1 dated record(s) in this period"
+        },
+        "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+        "basis": "2025-2025 (2025-2025) covers 1 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+        "basis_source": "derived:equal_width",
+        "covered_stages": [
+          "emerging",
+          "growing"
+        ],
+        "covered_sources": [
+          "R7"
+        ],
+        "known_omissions": "undated records and terms mentioned only once are not represented"
+      }
+    ],
+    "gap_exclusion": [
+      {
+        "gap": "dormant_terms",
+        "basis": "terms with no recent records in this batch: cytokine",
+        "search_scope": {
+          "records_checked": 7,
+          "year_range": [
+            2019,
+            2025
+          ],
+          "terms_checked": [
+            "car-t",
+            "persistence",
+            "crispr",
+            "screen",
+            "cytokine",
+            "machine"
+          ]
+        },
+        "exclusion_evidence": [
+          {
+            "source_id": "R1",
+            "locator": "/records/0",
+            "year": 2019,
+            "why": "last mention of 'cytokine' in this batch is 2020"
+          }
+        ],
+        "status": "batch_bounded",
+        "external_check_required": true
+      },
+      {
+        "gap": "batch_coverage",
+        "basis": "absence here reflects batch coverage, not the absence of a field-wide gap",
+        "search_scope": {
+          "records_checked": 7,
+          "year_range": [
+            2019,
+            2025
+          ],
+          "terms_checked": [
+            "car-t",
+            "persistence",
+            "crispr",
+            "screen",
+            "cytokine",
+            "machine"
+          ]
+        },
+        "exclusion_evidence": [
+          {
+            "source_id": "R7",
+            "locator": "/records/6",
+            "year": 2025,
+            "why": "absence here reflects batch coverage, not the absence of a field-wide gap"
+          }
+        ],
+        "status": "batch_bounded",
+        "external_check_required": true
+      }
+    ],
+    "needs_human_confirmation": [
+      {
+        "item": "assign publication years to 1 undated record(s)",
+        "locator": "/records/7",
+        "reason": "undated records are excluded from every year series and lifecycle label"
+      },
+      {
+        "item": "confirm whether 'car-t' was renamed, split or merged with another term",
+        "locator": "/records/2",
+        "reason": "term-count series cannot distinguish a renamed topic from a new one"
+      },
+      {
+        "item": "read the full text behind the cue 'future research'",
+        "locator": "/records/4",
+        "reason": "the open question is stated in the abstract; its scope needs the full text"
+      },
+      {
+        "item": "read the full text behind the cue 'remains unclear'",
+        "locator": "/records/5",
+        "reason": "the open question is stated in the abstract; its scope needs the full text"
+      },
+      {
+        "item": "check the batch against an external index before any field-level claim",
+        "locator": "/",
+        "reason": "every trend here is bounded by the supplied batch"
+      }
+    ],
+    "synthesis": {
+      "narrative": "Some tracked terms expand (crispr, screen, machine) while others contract (cytokine); no single field-level direction is claimed. Phase summary: 2019-2020: 2 record(s), stages dormant, insufficient_data; 2021-2022: 2 record(s), stages growing, insufficient_data; 2023-2024: 2 record(s), stages emerging, growing, insufficient_data; 2025-2025: 1 record(s), stages emerging, growing. Gaps in this batch: terms with no recent records in this batch: cytokine; absence here reflects batch coverage, not the absence of a field-wide gap. Boundary: the statement covers 8 unique record(s) (7 dated, 0 duplicate(s) removed) and is not a field-level forecast.",
+      "direction": "mixed",
+      "strongest_signals": [
+        {
+          "term": "car-t",
+          "lifecycle": "insufficient_data",
+          "mentions": 5
+        },
+        {
+          "term": "persistence",
+          "lifecycle": "insufficient_data",
+          "mentions": 5
+        },
+        {
+          "term": "crispr",
+          "lifecycle": "growing",
+          "mentions": 3
+        },
+        {
+          "term": "screen",
+          "lifecycle": "growing",
+          "mentions": 3
+        },
+        {
+          "term": "cytokine",
+          "lifecycle": "dormant",
+          "mentions": 2
+        }
+      ],
+      "caveats": [
+        "terms with no recent records in this batch: cytokine",
+        "absence here reflects batch coverage, not the absence of a field-wide gap"
+      ],
+      "bounded_by": "supplied batch: 8 records, 2019-2025",
+      "not_a_forecast": true,
+      "decision_scope": "descriptive only; no forecast, funding, hiring or policy decision"
+    },
+    "method": {
+      "lifecycle_rule": "emerging: first seen in the last 2 years; growing: late >= 2x early; declining: early >= 2x late; dormant: no record in the last 3 years; else stable",
+      "burst_rule": "year count above mean + standard deviation and at least 2",
+      "representative_rule": "highest in-batch citation count, ties by source id; undated records are never selected",
+      "evolution_rule": "appear / grow / stable / decline / dormant are measured from the batch; merge and split are reported only as co-occurrence candidates",
+      "theme_merge_rule": "concept groups are taken from input concept_rules first; assets/theme-lexicon.json is only a fallback; unmatched terms stay at term level",
+      "period_rule": "no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+      "period_basis": "derived:equal_width",
+      "dedup_rule": "DOI first; otherwise normalised title + year; the first occurrence is kept and later ones are marked duplicate_of and removed from every year series",
+      "materials_rule": "md/txt/csv/json under the input root are parsed into numbered paragraphs; PDF uses pdftotext when available and is otherwise marked unparsed; records are matched by DOI or title",
+      "query_rule": "queries are declared with fields, date range and language, then scored by keyword hits on the supplied records only",
+      "no_forecast": "no future values are extrapolated",
+      "deterministic": true,
+      "network": false
+    },
+    "limitations": [
+      "Term series depend on title/abstract wording; synonym merging only works through input concept_rules or the fallback lexicon.",
+      "Year fields are used as supplied; online-first, issue and preprint dates are not distinguished.",
+      "Citation counts, when supplied, are in-batch only and are not field-normalised.",
+      "A dormant term in this batch is not evidence that the field abandoned it.",
+      "Merge and split cannot be confirmed from term counts alone.",
+      "Queries are declared and scored on the batch; no online index was queried, so hits are not database hits.",
+      "No forecasting, topic modelling or external citation index is used."
+    ],
+    "change_log": [
+      "Counted dated records per year and located the peak year after removing duplicates.",
+      "Built term-level series and assigned deterministic lifecycle labels with stated rules.",
+      "Flagged burst years using mean plus standard deviation.",
+      "Selected representative works per period by in-batch citations and stated each period basis.",
+      "Mapped each lifecycle to an evolution stage; merged synonyms from input rules or the fallback lexicon with explicit evidence.",
+      "Backed each trend, evolution, representative and gap claim with a locator and an exact quote.",
+      "Collected explicitly stated open questions and stated batch-level gaps.",
+      "Wrote trend_stats.json, screening_log.csv and a four-section review report next to result.json."
+    ],
+    "validator_verdict": "PASS",
+    "self_check": [
+      {
+        "check": "flow_closure",
+        "status": "PASS",
+        "detail": "identified 8 = duplicates 0 + unique 8; unique 8 = dated 7 + undated 1"
+      },
+      {
+        "check": "year_counts_sorted",
+        "status": "PASS",
+        "detail": "year keys: [2019, 2020, 2021, 2023, 2024, 2025]"
+      },
+      {
+        "check": "year_counts_sum",
+        "status": "PASS",
+        "detail": "sum(year_counts) 7 vs dated 7"
+      },
+      {
+        "check": "quote_verified",
+        "status": "PASS",
+        "detail": "8/8 evidence rows carry a verified quote"
+      },
+      {
+        "check": "case_quote_verified",
+        "status": "PASS",
+        "detail": "8/8 evidence rows keep a verified case.json quote"
+      },
+      {
+        "check": "representative_in_window",
+        "status": "PASS",
+        "detail": "4 representative row(s) checked against their period window"
+      },
+      {
+        "check": "unique_included_ids",
+        "status": "PASS",
+        "detail": "7 included source id(s), 7 distinct"
+      }
+    ],
+    "review_report": {
+      "report_type": "review_report",
+      "language": "zh",
+      "sections": [
+        {
+          "heading": "时间趋势",
+          "text": "时间趋势：本批共识别 8 条题录，去重后 8 条（按 DOI 或归一化标题加年份判定重复 0 条，重复项不进入任何年份序列），其中 7 条可解析出版年份，覆盖 2019 至 2025 年，峰值年为 2021 年（2 条）。去重后的年份直方图为：2019 年 1 条、2020 年 1 条、2021 年 2 条、2023 年 1 条、2024 年 1 条、2025 年 1 条。该直方图逐条写入 trend_stats.json 的 year_histogram，可与 evidence_matrix 的 included_in_series 独立复算。"
+        },
+        {
+          "heading": "主题演化",
+          "text": "主题演化：主题表共 6 行，其中 0 行由输入声明的归并规则合并（source=input），2 行沿用回退词表 assets/theme-lexicon.json（source=lexicon），4 行停留在词项级（source=term-level）。处于出现或增长阶段的是 gene editing、screen、machine；处于衰退或休眠阶段的是 cytokine。每个主题的阶段标签都由首末年与前后半段计数按固定阈值推出，merge_basis 说明归并依据，merge_evidence 列出参与归并的每个词项及其提及次数，换领域时以输入规则为准。"
+        },
+        {
+          "heading": "代表性工作",
+          "text": "代表性工作：时间窗划分为 4 个阶段，阶段划分口径为 derived:equal_width；每阶段按批内引用数最高选出一条代表，平票按年份与 source_id，无引用计数的记录排在引用记录之后。各阶段情况为：2019-2020（2 条，代表 R1）；2021-2022（2 条，代表 R3）；2023-2024（2 条，代表 R6）；2025-2025（1 条，代表 R7）。阶段边界与成立依据写在 representative_selection 的 basis 与 basis_source 中，代表作年份均落在所属阶段内。"
+        },
+        {
+          "heading": "研究空白与边界",
+          "text": "研究空白与边界：本批触发 2 条空白（dormant_terms、batch_coverage），每条都带 search_scope 与 exclusion_evidence，只表示本批内没有支撑证据，不等同于领域空缺。证据矩阵共 8 行，其中原文匹配 0 条、摘要或元数据层 7 条，覆盖层级为 abstract_only。全部结论描述的是所给批次，不预测未来年份、增长率或成熟度；超出批次的判断需另行检索与人工复核。"
+        }
+      ],
+      "text": "时间趋势：本批共识别 8 条题录，去重后 8 条（按 DOI 或归一化标题加年份判定重复 0 条，重复项不进入任何年份序列），其中 7 条可解析出版年份，覆盖 2019 至 2025 年，峰值年为 2021 年（2 条）。去重后的年份直方图为：2019 年 1 条、2020 年 1 条、2021 年 2 条、2023 年 1 条、2024 年 1 条、2025 年 1 条。该直方图逐条写入 trend_stats.json 的 year_histogram，可与 evidence_matrix 的 included_in_series 独立复算。\n主题演化：主题表共 6 行，其中 0 行由输入声明的归并规则合并（source=input），2 行沿用回退词表 assets/theme-lexicon.json（source=lexicon），4 行停留在词项级（source=term-level）。处于出现或增长阶段的是 gene editing、screen、machine；处于衰退或休眠阶段的是 cytokine。每个主题的阶段标签都由首末年与前后半段计数按固定阈值推出，merge_basis 说明归并依据，merge_evidence 列出参与归并的每个词项及其提及次数，换领域时以输入规则为准。\n代表性工作：时间窗划分为 4 个阶段，阶段划分口径为 derived:equal_width；每阶段按批内引用数最高选出一条代表，平票按年份与 source_id，无引用计数的记录排在引用记录之后。各阶段情况为：2019-2020（2 条，代表 R1）；2021-2022（2 条，代表 R3）；2023-2024（2 条，代表 R6）；2025-2025（1 条，代表 R7）。阶段边界与成立依据写在 representative_selection 的 basis 与 basis_source 中，代表作年份均落在所属阶段内。\n研究空白与边界：本批触发 2 条空白（dormant_terms、batch_coverage），每条都带 search_scope 与 exclusion_evidence，只表示本批内没有支撑证据，不等同于领域空缺。证据矩阵共 8 行，其中原文匹配 0 条、摘要或元数据层 7 条，覆盖层级为 abstract_only。全部结论描述的是所给批次，不预测未来年份、增长率或成熟度；超出批次的判断需另行检索与人工复核。",
+      "char_count": 1037,
+      "generated_from": [
+        "result.trend_overview",
+        "result.theme_evolution",
+        "result.periods",
+        "result.representative_selection",
+        "result.research_gaps",
+        "result.evidence_matrix"
+      ],
+      "bounded_by": [
+        2019,
+        2025
+      ],
+      "not_a_forecast": true
+    }
+  },
+  "evidence": [
+    {
+      "kind": "term_evidence",
+      "term": "car-t",
+      "source_id": "R3",
+      "locator": "/records/2",
+      "case_locator": "/records/2",
+      "file": null,
+      "year": 2021,
+      "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+      "quote_verified": true,
+      "truncated": false,
+      "series": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 2,
+        "2023": 1
+      },
+      "lifecycle": "insufficient_data"
+    },
+    {
+      "kind": "term_evidence",
+      "term": "persistence",
+      "source_id": "R3",
+      "locator": "/records/2",
+      "case_locator": "/records/2",
+      "file": null,
+      "year": 2021,
+      "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+      "quote_verified": true,
+      "truncated": false,
+      "series": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 2,
+        "2023": 1
+      },
+      "lifecycle": "insufficient_data"
+    },
+    {
+      "kind": "term_evidence",
+      "term": "crispr",
+      "source_id": "R3",
+      "locator": "/records/2",
+      "case_locator": "/records/2",
+      "file": null,
+      "year": 2021,
+      "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+      "quote_verified": true,
+      "truncated": false,
+      "series": {
+        "2021": 1,
+        "2024": 1,
+        "2025": 1
+      },
+      "lifecycle": "growing"
+    },
+    {
+      "kind": "term_evidence",
+      "term": "screen",
+      "source_id": "R3",
+      "locator": "/records/2",
+      "case_locator": "/records/2",
+      "file": null,
+      "year": 2021,
+      "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+      "quote_verified": true,
+      "truncated": false,
+      "series": {
+        "2021": 1,
+        "2024": 1,
+        "2025": 1
+      },
+      "lifecycle": "growing"
+    },
+    {
+      "kind": "term_evidence",
+      "term": "cytokine",
+      "source_id": "R1",
+      "locator": "/records/0",
+      "case_locator": "/records/0",
+      "file": null,
+      "year": 2019,
+      "quote": "CAR-T persistence correlated with cytokine release in an early cohort of patients.",
+      "quote_verified": true,
+      "truncated": false,
+      "series": {
+        "2019": 1,
+        "2020": 1
+      },
+      "lifecycle": "dormant"
+    },
+    {
+      "kind": "term_evidence",
+      "term": "machine",
+      "source_id": "R6",
+      "locator": "/records/5",
+      "case_locator": "/records/5",
+      "file": null,
+      "year": 2024,
+      "quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+      "quote_verified": true,
+      "truncated": false,
+      "series": {
+        "2024": 1,
+        "2025": 1
+      },
+      "lifecycle": "emerging"
+    },
+    {
+      "kind": "record_evidence",
+      "source_id": "R2",
+      "locator": "/records/1",
+      "case_locator": "/records/1",
+      "file": null,
+      "year": 2020,
+      "quote": "Cytokine profiles tracked CAR-T persistence over one year in a cohort.",
+      "quote_verified": true,
+      "truncated": false
+    },
+    {
+      "kind": "record_evidence",
+      "source_id": "R4",
+      "locator": "/records/3",
+      "case_locator": "/records/3",
+      "file": null,
+      "year": 2021,
+      "quote": "Long-term persistence of CAR-T cells was observed in a cohort followed for two years.",
+      "quote_verified": true,
+      "truncated": false
+    },
+    {
+      "kind": "record_evidence",
+      "source_id": "R5",
+      "locator": "/records/4",
+      "case_locator": "/records/4",
+      "file": null,
+      "year": 2023,
+      "quote": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+      "quote_verified": true,
+      "truncated": false
+    },
+    {
+      "kind": "record_evidence",
+      "source_id": "R7",
+      "locator": "/records/6",
+      "case_locator": "/records/6",
+      "file": null,
+      "year": 2025,
+      "quote": "Machine learning improved CRISPR guide design and screen efficiency in primary cells.",
+      "quote_verified": true,
+      "truncated": false
+    }
+  ],
+  "uncertainty": [
+    {
+      "type": "undated_records",
+      "detail": "1 record(s) lack a year and are excluded from series."
+    },
+    {
+      "type": "short_window",
+      "detail": "Emerging labels use a three-year tail and can reflect indexing lag rather than a real shift."
+    },
+    {
+      "type": "batch_only",
+      "detail": "Trends describe the supplied batch; no external database or citation index was queried."
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "records": 8,
+    "unique_records": 8,
+    "duplicates": 0,
+    "dated": 7,
+    "years": 6,
+    "terms": 6,
+    "claims": 14,
+    "open_questions": 2,
+    "human_confirmation_items": 5,
+    "materials": 0,
+    "matched_sources": 0,
+    "materials_skipped": 0,
+    "network": "disabled"
+  },
+  "input_manifest": [
+    {
+      "path": "case.json",
+      "bytes": 2723,
+      "sha256": "762903f78aedd06d0a6f694664adff2a1793c59aa6cad1832c2a0f561e67f2ab",
+      "hash_scope": "full"
+    }
+  ],
+  "run": {
+    "entrypoint": "scripts/sk_entry.py",
+    "network": "disabled",
+    "stdlib_only": true,
+    "deterministic": true,
+    "policy_version": "1.0.0"
+  },
+  "trend_overview": {
+    "records": 8,
+    "identified_records": 8,
+    "duplicates_removed": 0,
+    "dated_records": 7,
+    "year_range": [
+      2019,
+      2025
+    ],
+    "year_counts": {
+      "2019": 1,
+      "2020": 1,
+      "2021": 2,
+      "2023": 1,
+      "2024": 1,
+      "2025": 1
+    },
+    "peak_year": 2021,
+    "growth_note": "counts are absolute within the batch; no normalisation by database size is possible"
+  },
+  "theme_evolution": [
+    {
+      "theme": "cell therapy",
+      "concept": "cell therapy",
+      "member_terms": [
+        "car-t"
+      ],
+      "merged_synonyms": false,
+      "stage": "not_determinable",
+      "lifecycle_label": "insufficient_data",
+      "from_year": 2019,
+      "to_year": 2023,
+      "series": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 2,
+        "2023": 1
+      },
+      "basis": "first-half mentions (4) exceed the second half (1), but the late half holds only 1 mention(s) across 3 dated record(s), so a decline cannot be separated from discrete fluctuation",
+      "source_ids": [
+        "R3",
+        "R1",
+        "R2"
+      ],
+      "merge_rule": {
+        "rule": "fallback_synonym_merge",
+        "source": "lexicon"
+      },
+      "merge_basis": "no input concept rule matched; the fallback table assets/theme-lexicon.json maps these members to 'cell therapy' and the theme series is their sum",
+      "merge_evidence": [
+        {
+          "term": "car-t",
+          "mentions": 5,
+          "first_year": 2019,
+          "last_year": 2023
+        }
+      ],
+      "merge_split": "no_synonym_in_lexicon",
+      "merge_split_note": "members were aggregated with the fallback lexicon (assets/theme-lexicon.json); declare concept_rules in the input to override it"
+    },
+    {
+      "theme": "persistence",
+      "concept": null,
+      "member_terms": [
+        "persistence"
+      ],
+      "merged_synonyms": false,
+      "stage": "not_determinable",
+      "lifecycle_label": "insufficient_data",
+      "from_year": 2019,
+      "to_year": 2023,
+      "series": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 2,
+        "2023": 1
+      },
+      "basis": "first-half mentions (4) exceed the second half (1), but the late half holds only 1 mention(s) across 3 dated record(s), so a decline cannot be separated from discrete fluctuation",
+      "source_ids": [
+        "R3",
+        "R1",
+        "R2"
+      ],
+      "merge_rule": {
+        "rule": "term_level",
+        "source": "term-level"
+      },
+      "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+      "merge_evidence": [
+        {
+          "term": "persistence",
+          "mentions": 5,
+          "first_year": 2019,
+          "last_year": 2023
+        }
+      ],
+      "merge_split": "no_synonym_in_lexicon",
+      "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+    },
+    {
+      "theme": "gene editing",
+      "concept": "gene editing",
+      "member_terms": [
+        "crispr"
+      ],
+      "merged_synonyms": false,
+      "stage": "grow",
+      "lifecycle_label": "growing",
+      "from_year": 2021,
+      "to_year": 2025,
+      "series": {
+        "2021": 1,
+        "2024": 1,
+        "2025": 1
+      },
+      "basis": "second-half mentions (2) at least 2x the first half (1)",
+      "source_ids": [
+        "R3",
+        "R6",
+        "R7"
+      ],
+      "merge_rule": {
+        "rule": "fallback_synonym_merge",
+        "source": "lexicon"
+      },
+      "merge_basis": "no input concept rule matched; the fallback table assets/theme-lexicon.json maps these members to 'gene editing' and the theme series is their sum",
+      "merge_evidence": [
+        {
+          "term": "crispr",
+          "mentions": 3,
+          "first_year": 2021,
+          "last_year": 2025
+        }
+      ],
+      "merge_split": "no_synonym_in_lexicon",
+      "merge_split_note": "members were aggregated with the fallback lexicon (assets/theme-lexicon.json); declare concept_rules in the input to override it"
+    },
+    {
+      "theme": "screen",
+      "concept": null,
+      "member_terms": [
+        "screen"
+      ],
+      "merged_synonyms": false,
+      "stage": "grow",
+      "lifecycle_label": "growing",
+      "from_year": 2021,
+      "to_year": 2025,
+      "series": {
+        "2021": 1,
+        "2024": 1,
+        "2025": 1
+      },
+      "basis": "second-half mentions (2) at least 2x the first half (1)",
+      "source_ids": [
+        "R3",
+        "R6",
+        "R7"
+      ],
+      "merge_rule": {
+        "rule": "term_level",
+        "source": "term-level"
+      },
+      "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+      "merge_evidence": [
+        {
+          "term": "screen",
+          "mentions": 3,
+          "first_year": 2021,
+          "last_year": 2025
+        }
+      ],
+      "merge_split": "no_synonym_in_lexicon",
+      "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+    },
+    {
+      "theme": "cytokine",
+      "concept": null,
+      "member_terms": [
+        "cytokine"
+      ],
+      "merged_synonyms": false,
+      "stage": "dormant",
+      "lifecycle_label": "dormant",
+      "from_year": 2019,
+      "to_year": 2020,
+      "series": {
+        "2019": 1,
+        "2020": 1
+      },
+      "basis": "last appearance 2020, at least 3 years before the batch end",
+      "source_ids": [
+        "R1",
+        "R2"
+      ],
+      "merge_rule": {
+        "rule": "term_level",
+        "source": "term-level"
+      },
+      "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+      "merge_evidence": [
+        {
+          "term": "cytokine",
+          "mentions": 2,
+          "first_year": 2019,
+          "last_year": 2020
+        }
+      ],
+      "merge_split": "no_synonym_in_lexicon",
+      "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+    },
+    {
+      "theme": "machine",
+      "concept": null,
+      "member_terms": [
+        "machine"
+      ],
+      "merged_synonyms": false,
+      "stage": "appear",
+      "lifecycle_label": "emerging",
+      "from_year": 2024,
+      "to_year": 2025,
+      "series": {
+        "2024": 1,
+        "2025": 1
+      },
+      "basis": "first appearance 2024 with activity in the latest years",
+      "source_ids": [
+        "R6",
+        "R7"
+      ],
+      "merge_rule": {
+        "rule": "term_level",
+        "source": "term-level"
+      },
+      "merge_basis": "no input concept rule and no fallback lexicon entry covers this term, so it is reported on its own at term level",
+      "merge_evidence": [
+        {
+          "term": "machine",
+          "mentions": 2,
+          "first_year": 2024,
+          "last_year": 2025
+        }
+      ],
+      "merge_split": "no_synonym_in_lexicon",
+      "merge_split_note": "no concept mapping was supplied or matched; the term is reported on its own"
+    }
+  ],
+  "claim_evidence": [
+    {
+      "category": "trend",
+      "claim": "the dated batch covers 2019-2025 with 7 records; the peak year is 2021 with 2 record(s)",
+      "source_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2019-2025",
+      "aggregate": true,
+      "table_ref": "result.trend_overview.year_counts",
+      "evidence_ids": []
+    },
+    {
+      "category": "trend",
+      "claim": "batch output fell between the two halves of the window (4 -> 3 dated records)",
+      "source_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2019-2025",
+      "aggregate": true,
+      "table_ref": "result.trend_overview.year_counts",
+      "evidence_ids": []
+    },
+    {
+      "category": "evolution",
+      "claim": "'crispr' is growing in this batch (second-half mentions (2) at least 2x the first half (1))",
+      "source_ids": [
+        "R3",
+        "R6",
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2021-2025",
+      "aggregate": true,
+      "table_ref": "result.terms.crispr.series",
+      "evidence_ids": []
+    },
+    {
+      "category": "evolution",
+      "claim": "'screen' is growing in this batch (second-half mentions (2) at least 2x the first half (1))",
+      "source_ids": [
+        "R3",
+        "R6",
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2021-2025",
+      "aggregate": true,
+      "table_ref": "result.terms.screen.series",
+      "evidence_ids": []
+    },
+    {
+      "category": "evolution",
+      "claim": "'cytokine' is dormant in this batch (last appearance 2020, at least 3 years before the batch end)",
+      "source_ids": [
+        "R1",
+        "R2"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2019-2020",
+      "aggregate": true,
+      "table_ref": "result.terms.cytokine.series",
+      "evidence_ids": []
+    },
+    {
+      "category": "evolution",
+      "claim": "'machine' is emerging in this batch (first appearance 2024 with activity in the latest years)",
+      "source_ids": [
+        "R6",
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2024-2025",
+      "aggregate": true,
+      "table_ref": "result.terms.machine.series",
+      "evidence_ids": []
+    },
+    {
+      "category": "representative",
+      "claim": "2019-2020 is represented by R1 (40 in-batch citations)",
+      "source_ids": [
+        "R1",
+        "R2"
+      ],
+      "locator": "/records/0",
+      "source_locator": null,
+      "case_locator": "/records/0",
+      "quote": "CAR-T persistence correlated with cytokine release in an early cohort of patients.",
+      "quote_verified": true,
+      "truncated": false,
+      "period": "2019-2020",
+      "aggregate": false,
+      "table_ref": null,
+      "evidence_ids": [
+        "E01"
+      ]
+    },
+    {
+      "category": "representative",
+      "claim": "2021-2022 is represented by R3 (60 in-batch citations)",
+      "source_ids": [
+        "R3",
+        "R4"
+      ],
+      "locator": "/records/2",
+      "source_locator": null,
+      "case_locator": "/records/2",
+      "quote": "A genome-wide CRISPR screen nominated regulators of CAR-T persistence in primary cells.",
+      "quote_verified": true,
+      "truncated": false,
+      "period": "2021-2022",
+      "aggregate": false,
+      "table_ref": null,
+      "evidence_ids": [
+        "E03"
+      ]
+    },
+    {
+      "category": "representative",
+      "claim": "2023-2024 is represented by R6 (30 in-batch citations)",
+      "source_ids": [
+        "R6",
+        "R5"
+      ],
+      "locator": "/records/5",
+      "source_locator": null,
+      "case_locator": "/records/5",
+      "quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+      "quote_verified": true,
+      "truncated": false,
+      "period": "2023-2024",
+      "aggregate": false,
+      "table_ref": null,
+      "evidence_ids": [
+        "E06"
+      ]
+    },
+    {
+      "category": "representative",
+      "claim": "2025-2025 is represented by R7 (12 in-batch citations)",
+      "source_ids": [
+        "R7"
+      ],
+      "locator": "/records/6",
+      "source_locator": null,
+      "case_locator": "/records/6",
+      "quote": "Machine learning improved CRISPR guide design and screen efficiency in primary cells.",
+      "quote_verified": true,
+      "truncated": false,
+      "period": "2025-2025",
+      "aggregate": false,
+      "table_ref": null,
+      "evidence_ids": [
+        "E07"
+      ]
+    },
+    {
+      "category": "gap",
+      "claim": "a supplied record raises an open question via 'future research'",
+      "source_ids": [
+        "R5"
+      ],
+      "locator": "/records/4",
+      "source_locator": null,
+      "case_locator": "/records/4",
+      "quote": "Future research is needed on the mechanisms that sustain CAR-T persistence.",
+      "quote_verified": true,
+      "truncated": false,
+      "period": "2023",
+      "aggregate": false,
+      "table_ref": null,
+      "evidence_ids": [
+        "E05"
+      ]
+    },
+    {
+      "category": "gap",
+      "claim": "a supplied record raises an open question via 'remains unclear'",
+      "source_ids": [
+        "R6"
+      ],
+      "locator": "/records/5",
+      "source_locator": null,
+      "case_locator": "/records/5",
+      "quote": "Machine learning ranked CRISPR screen hits in T cells, but the mechanism remains unclear.",
+      "quote_verified": true,
+      "truncated": false,
+      "period": "2024",
+      "aggregate": false,
+      "table_ref": null,
+      "evidence_ids": [
+        "E06"
+      ]
+    },
+    {
+      "category": "gap",
+      "claim": "terms with no recent records in this batch: cytokine",
+      "source_ids": [
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2019-2025",
+      "aggregate": true,
+      "table_ref": "result.research_gaps.0",
+      "evidence_ids": []
+    },
+    {
+      "category": "gap",
+      "claim": "absence here reflects batch coverage, not the absence of a field-wide gap",
+      "source_ids": [
+        "R7"
+      ],
+      "locator": null,
+      "quote": null,
+      "quote_verified": null,
+      "truncated": false,
+      "period": "2019-2025",
+      "aggregate": true,
+      "table_ref": "result.research_gaps.1",
+      "evidence_ids": []
+    }
+  ],
+  "representative_selection": [
+    {
+      "period": "2019-2020",
+      "period_from": 2019,
+      "period_to": 2020,
+      "records_in_period": 2,
+      "representative_source_id": "R1",
+      "representative": {
+        "source_id": "R1",
+        "title": "CAR-T persistence and cytokine release",
+        "year": 2019,
+        "citations_in_batch": 40,
+        "locator": "/records/0",
+        "case_locator": "/records/0",
+        "file": null,
+        "reason": "highest in-batch citation count (40) among 2 dated record(s) in this period"
+      },
+      "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+      "basis": "2019-2020 (2019-2020) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+      "basis_source": "derived:equal_width",
+      "covered_stages": [
+        "dormant",
+        "insufficient_data"
+      ],
+      "covered_sources": [
+        "R1",
+        "R2"
+      ],
+      "known_omissions": "undated records and terms mentioned only once are not represented"
+    },
+    {
+      "period": "2021-2022",
+      "period_from": 2021,
+      "period_to": 2022,
+      "records_in_period": 2,
+      "representative_source_id": "R3",
+      "representative": {
+        "source_id": "R3",
+        "title": "CRISPR screen for CAR-T persistence regulators",
+        "year": 2021,
+        "citations_in_batch": 60,
+        "locator": "/records/2",
+        "case_locator": "/records/2",
+        "file": null,
+        "reason": "highest in-batch citation count (60) among 2 dated record(s) in this period"
+      },
+      "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+      "basis": "2021-2022 (2021-2022) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+      "basis_source": "derived:equal_width",
+      "covered_stages": [
+        "growing",
+        "insufficient_data"
+      ],
+      "covered_sources": [
+        "R3",
+        "R4"
+      ],
+      "known_omissions": "undated records and terms mentioned only once are not represented"
+    },
+    {
+      "period": "2023-2024",
+      "period_from": 2023,
+      "period_to": 2024,
+      "records_in_period": 2,
+      "representative_source_id": "R6",
+      "representative": {
+        "source_id": "R6",
+        "title": "CRISPR screening with machine learning",
+        "year": 2024,
+        "citations_in_batch": 30,
+        "locator": "/records/5",
+        "case_locator": "/records/5",
+        "file": null,
+        "reason": "highest in-batch citation count (30) among 2 dated record(s) in this period"
+      },
+      "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+      "basis": "2023-2024 (2023-2024) covers 2 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+      "basis_source": "derived:equal_width",
+      "covered_stages": [
+        "emerging",
+        "growing",
+        "insufficient_data"
+      ],
+      "covered_sources": [
+        "R6",
+        "R5"
+      ],
+      "known_omissions": "undated records and terms mentioned only once are not represented"
+    },
+    {
+      "period": "2025-2025",
+      "period_from": 2025,
+      "period_to": 2025,
+      "records_in_period": 1,
+      "representative_source_id": "R7",
+      "representative": {
+        "source_id": "R7",
+        "title": "Machine learning for CRISPR guide design",
+        "year": 2025,
+        "citations_in_batch": 12,
+        "locator": "/records/6",
+        "case_locator": "/records/6",
+        "file": null,
+        "reason": "highest in-batch citation count (12) among 1 dated record(s) in this period"
+      },
+      "rule": "exactly one representative per period: highest in-batch citation count; ties by year then source id; records without citations rank after cited records",
+      "basis": "2025-2025 (2025-2025) covers 1 dated record(s); no period plan was supplied by the input; the dated window 2019-2025 is split into equal-width bins of 2 year(s) (span 7 // 3), capped at 4 periods",
+      "basis_source": "derived:equal_width",
+      "covered_stages": [
+        "emerging",
+        "growing"
+      ],
+      "covered_sources": [
+        "R7"
+      ],
+      "known_omissions": "undated records and terms mentioned only once are not represented"
+    }
+  ],
+  "gap_exclusion": [
+    {
+      "gap": "dormant_terms",
+      "basis": "terms with no recent records in this batch: cytokine",
+      "search_scope": {
+        "records_checked": 7,
+        "year_range": [
+          2019,
+          2025
+        ],
+        "terms_checked": [
+          "car-t",
+          "persistence",
+          "crispr",
+          "screen",
+          "cytokine",
+          "machine"
+        ]
+      },
+      "exclusion_evidence": [
+        {
+          "source_id": "R1",
+          "locator": "/records/0",
+          "year": 2019,
+          "why": "last mention of 'cytokine' in this batch is 2020"
+        }
+      ],
+      "status": "batch_bounded",
+      "external_check_required": true
+    },
+    {
+      "gap": "batch_coverage",
+      "basis": "absence here reflects batch coverage, not the absence of a field-wide gap",
+      "search_scope": {
+        "records_checked": 7,
+        "year_range": [
+          2019,
+          2025
+        ],
+        "terms_checked": [
+          "car-t",
+          "persistence",
+          "crispr",
+          "screen",
+          "cytokine",
+          "machine"
+        ]
+      },
+      "exclusion_evidence": [
+        {
+          "source_id": "R7",
+          "locator": "/records/6",
+          "year": 2025,
+          "why": "absence here reflects batch coverage, not the absence of a field-wide gap"
+        }
+      ],
+      "status": "batch_bounded",
+      "external_check_required": true
+    }
+  ],
+  "conflicts": [
+    {
+      "type": "candidate_merge",
+      "terms": [
+        "crispr",
+        "machine"
+      ],
+      "records": 2,
+      "handling": "reported as a co-occurrence candidate; it is not a confirmed merge or split"
+    },
+    {
+      "type": "candidate_merge",
+      "terms": [
+        "screen",
+        "machine"
+      ],
+      "records": 2,
+      "handling": "reported as a co-occurrence candidate; it is not a confirmed merge or split"
+    },
+    {
+      "type": "candidate_split",
+      "terms": [
+        "car-t",
+        "cytokine"
+      ],
+      "records": 2,
+      "handling": "reported as a co-occurrence candidate; it is not a confirmed merge or split"
+    }
+  ],
+  "research_gaps": [
+    {
+      "type": "dormant_terms",
+      "basis": "terms with no recent records in this batch: cytokine"
+    },
+    {
+      "type": "batch_coverage",
+      "basis": "absence here reflects batch coverage, not the absence of a field-wide gap"
+    }
+  ],
+  "needs_human_confirmation": [
+    {
+      "item": "assign publication years to 1 undated record(s)",
+      "locator": "/records/7",
+      "reason": "undated records are excluded from every year series and lifecycle label"
+    },
+    {
+      "item": "confirm whether 'car-t' was renamed, split or merged with another term",
+      "locator": "/records/2",
+      "reason": "term-count series cannot distinguish a renamed topic from a new one"
+    },
+    {
+      "item": "read the full text behind the cue 'future research'",
+      "locator": "/records/4",
+      "reason": "the open question is stated in the abstract; its scope needs the full text"
+    },
+    {
+      "item": "read the full text behind the cue 'remains unclear'",
+      "locator": "/records/5",
+      "reason": "the open question is stated in the abstract; its scope needs the full text"
+    },
+    {
+      "item": "check the batch against an external index before any field-level claim",
+      "locator": "/",
+      "reason": "every trend here is bounded by the supplied batch"
+    }
+  ],
+  "synthesis": {
+    "narrative": "Some tracked terms expand (crispr, screen, machine) while others contract (cytokine); no single field-level direction is claimed. Phase summary: 2019-2020: 2 record(s), stages dormant, insufficient_data; 2021-2022: 2 record(s), stages growing, insufficient_data; 2023-2024: 2 record(s), stages emerging, growing, insufficient_data; 2025-2025: 1 record(s), stages emerging, growing. Gaps in this batch: terms with no recent records in this batch: cytokine; absence here reflects batch coverage, not the absence of a field-wide gap. Boundary: the statement covers 8 unique record(s) (7 dated, 0 duplicate(s) removed) and is not a field-level forecast.",
+    "direction": "mixed",
+    "strongest_signals": [
+      {
+        "term": "car-t",
+        "lifecycle": "insufficient_data",
+        "mentions": 5
+      },
+      {
+        "term": "persistence",
+        "lifecycle": "insufficient_data",
+        "mentions": 5
+      },
+      {
+        "term": "crispr",
+        "lifecycle": "growing",
+        "mentions": 3
+      },
+      {
+        "term": "screen",
+        "lifecycle": "growing",
+        "mentions": 3
+      },
+      {
+        "term": "cytokine",
+        "lifecycle": "dormant",
+        "mentions": 2
+      }
+    ],
+    "caveats": [
+      "terms with no recent records in this batch: cytokine",
+      "absence here reflects batch coverage, not the absence of a field-wide gap"
+    ],
+    "bounded_by": "supplied batch: 8 records, 2019-2025",
+    "not_a_forecast": true,
+    "decision_scope": "descriptive only; no forecast, funding, hiring or policy decision"
+  },
+  "contract_notes": {
+    "trend_overview": "lifted from result.trend_overview so the declared field exists at top level",
+    "theme_evolution": "lifted from result.theme_evolution so the declared field exists at top level",
+    "claim_evidence": "lifted from result.claim_evidence so the declared field exists at top level",
+    "representative_selection": "lifted from result.representative_selection so the declared field exists at top level",
+    "gap_exclusion": "lifted from result.gap_exclusion so the declared field exists at top level",
+    "conflicts": "lifted from result.conflicts so the declared field exists at top level",
+    "research_gaps": "lifted from result.research_gaps so the declared field exists at top level",
+    "needs_human_confirmation": "lifted from result.needs_human_confirmation so the declared field exists at top level",
+    "synthesis": "lifted from result.synthesis so the declared field exists at top level",
+    "status": "already produced as a top-level field; kept unchanged"
+  },
+  "contract_extras": {
+    "contract_shape": "mapping",
+    "declared_keys": [
+      "trend_overview",
+      "theme_evolution",
+      "claim_evidence",
+      "representative_selection",
+      "gap_exclusion",
+      "conflicts",
+      "research_gaps",
+      "needs_human_confirmation",
+      "synthesis",
+      "status"
+    ],
+    "not_determinable_keys": [],
+    "aliases_applied": {},
+    "uninterpreted_input_keys": [
+      "note"
+    ]
+  },
+  "output_contract_fields": {
+    "provided": [
+      "trend_overview",
+      "theme_evolution",
+      "claim_evidence",
+      "representative_selection",
+      "gap_exclusion",
+      "conflicts",
+      "research_gaps",
+      "needs_human_confirmation",
+      "synthesis",
+      "status"
+    ],
+    "present": {
+      "trend_overview": true,
+      "theme_evolution": true,
+      "claim_evidence": true,
+      "representative_selection": true,
+      "gap_exclusion": true,
+      "conflicts": true,
+      "research_gaps": true,
+      "needs_human_confirmation": true,
+      "synthesis": true,
+      "status": true
+    },
+    "sources": {
+      "trend_overview": "result",
+      "theme_evolution": "result",
+      "claim_evidence": "result",
+      "representative_selection": "result",
+      "gap_exclusion": "result",
+      "conflicts": "result",
+      "research_gaps": "result",
+      "needs_human_confirmation": "result",
+      "synthesis": "result",
+      "status": "top_level"
+    },
+    "not_determinable": []
+  },
+  "artifacts": [
+    "report.md",
+    "screening_log.csv",
+    "trend_stats.json"
+  ]
+}
