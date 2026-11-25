@@ -17,6 +17,7 @@ answers, private data or credentials are included.
 |------|
 | `SKILL.md` |
 | `assets/policy.json` |
+| `assets/theme-lexicon.json` |
 | `examples/demo-case/case.json` |
 | `examples/quickstart.md` |
 | `references/evidence-discipline.md` |
