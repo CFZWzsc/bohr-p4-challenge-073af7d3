@@ -62,16 +62,22 @@ python scripts/sk_entry.py --input examples/demo-case --out /tmp/demo-out/result
 - `claim_evidence` 覆盖 `trend`、`evolution`、`representative`、`gap` 四类，`quote_verified` 全为 `true`；
 - `gap_exclusion` 每条都有 `search_scope` 与 `exclusion_evidence`；
 - `evidence_matrix` 8 行，`R8` 的 `included_in_series=false`；
-- 10 个契约键全部位于顶层，`not_determinable` 为空。
+- `flow = {identified:8, duplicates:0, unique:8, dated:7, undated:1}`；
+- `review_report` 为四段中文叙事，`char_count >= 200`；
+- 10 个契约键全部位于顶层，`not_determinable` 为空；
+- 输出目录另有 `trend_stats.json`、`screening_log.csv`、`report.md`，且都登记在顶层 `artifacts`。
+
+完整示意结果见 `examples/demo-case/example-result.json`（合成演示，标注 TOY，不可当作平台案例结论）。
 
 ## 4. 复核
 
 1. 取 `claim_evidence[0].locator` 与 `quote`，在 `case.json` 中逐字比对。
-2. 用 `evidence_matrix` 复算 `year_counts`。
+2. 用 `evidence_matrix` 的 `included_in_series=true` 行复算 `year_counts`，并与 `trend_stats.json` 的 `year_histogram`、`screening_log.csv` 的 `decision=include` 对齐。
 3. 抽查 `crispr`：首见 2021、提及 3 次、后半段 ≥2 次 → `growing`。
 4. 抽查 `cohort`：最后出现 2021，距批末 2025 为 4 年 → `dormant`。
 5. 确认 `candidate_merge` 只以候选措辞出现，未写成已确认合并。
-6. 用相同命令再跑一次，确认 `result.json` 内容一致。
+6. 检查 `theme_evolution[].merge_rule.source` 是否为 `input`/`lexicon`/`term-level`，以及 `merge_evidence` 的词项。
+7. 用相同命令再跑一次，确认 `result.json` 字节一致。
 
 ## 5. 常见问题
 
