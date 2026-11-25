@@ -1,6 +1,8 @@
 {
-  "version": "r20-2026-11-25",
-  "note": "Synonym table used to aggregate term-level series into concept-level themes. Only exact lowercase matches against the listed variants are merged; nothing is inferred.",
+  "version": "r21-2026-11-25",
+  "role": "fallback_only",
+  "note": "Fallback synonym table, not the primary source of theme hierarchy. Concept rules declared in the input (case.json concept_rules/theme_rules/synonym_rules, or a JSON block in task.md) always win; rows matched through this table are marked merge_rule.source=lexicon and terms with no match stay at term level.",
+  "override": "Declare concept_rules in the input to replace this table for any other domain.",
   "concepts": {
     "gene editing": {"terms": ["crispr", "cas9", "base editing", "prime editing", "knockout", "knock-in", "gene editing"]},
     "cell therapy": {"terms": ["car-t", "cart", "car t", "t-cell therapy", "adoptive transfer", "cell therapy"]},
