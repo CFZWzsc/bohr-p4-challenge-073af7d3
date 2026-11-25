@@ -39,7 +39,7 @@ description: Use when a dated batch of papers must be turned into a defensible r
 <input>/
   case.json        # 必需；缺失时按空输入处理，仍 exit 0
   task.md          # 可选；无 topic 时取第一条正文行作为主题
-  <其他材料>        # 只登记到 input_manifest（路径、字节、sha256 前 1MB），不参与统计
+  <其他材料>        # md/txt/csv/json 解析为编号段落；pdf 用 pdftotext，缺失则标 unparsed
 ```
 
 `case.json` 关键字段：
@@ -49,9 +49,11 @@ description: Use when a dated batch of papers must be turned into a defensible r
 | `case_id` | 原样回写；缺失时为 `unknown` |
 | `topic` 等 | 主题文本；缺失时由 `task.md` 兜底 |
 | 记录数组 | 每条含 `title`、`abstract`、`year`、`citations`、`doi`、`venue` |
+| `concept_rules` | 可选；同义词/上位词映射，优先于 `assets/theme-lexicon.json` |
+| `periods` | 可选；阶段划分（如 `["2018-2020","2021-2023"]`）；缺失时按等宽分箱 |
 | `output_contract` | 对象、字段名列表或 JSON Schema（含 `properties`）均可 |
 
-年份支持整数或文本中的四位年份（1800–2100）；无法解析视为无年份，并在 `uncertainty`、`needs_human_confirmation` 中标注。
+年份支持整数或文本中的四位年份（1800–2100）；无法解析视为无年份，并在 `uncertainty`、`needs_human_confirmation` 中标注。重复题录按 DOI 或归一化标题+年份判定，后出现的记 `duplicate_of` 并从年份序列剔除。
 
 ## 调用方式
 
@@ -81,22 +83,27 @@ python3 /skills/weekly-skill/scripts/run_skill.py --input /input --work /app/wor
 
 | 字段 | 内容 |
 |---|---|
-| `trend_overview` | `records`、`dated_records`、`year_range`、`year_counts`、`peak_year`、`growth_note` |
+| `trend_overview` | `records`、`dated_records`、`duplicates_removed`、`year_range`、`year_counts`、`peak_year`、`growth_note` |
+| `flow` | `identified`、`duplicates`、`unique`、`dated`、`undated`，满足 `identified=duplicates+unique`、`unique=dated+undated` |
 | `terms[]` | `term`、`mentions`、`first_year`、`last_year`、`series`、`lifecycle`、`basis`、`bursts[]`、`representative[]` |
-| `theme_evolution[]` | `theme`、`stage`、`lifecycle_label`、`from_year`、`to_year`、`series`、`basis`、`source_ids`、`merge_split`、`merge_split_note` |
+| `theme_evolution[]` | `theme`、`stage`、`lifecycle_label`、`from_year`、`to_year`、`series`、`basis`、`source_ids`、`merge_rule{rule,source}`、`merge_basis`、`merge_evidence[]`、`merge_split` |
 | `cooccurrence[]` | 词项对、`records`、`early_half`、`late_half`、`label`（`candidate_merge` / `candidate_split` / `persistent_cooccurrence` / `none_detected`） |
-| `claim_evidence[]` | `category`（`trend` / `evolution` / `representative` / `gap`）、`claim`、`source_ids`、`locator`、`quote`、`quote_verified`、`period` |
-| `periods[]` | 时间段、记录数、代表工作、选择规则 |
-| `representative_selection[]` | 时间段、规则、`covered_stages`、`known_omissions` |
+| `claim_evidence[]` | `category`（`trend` / `evolution` / `representative` / `gap`）、`claim`、`source_ids`、`locator`、`quote`、`quote_verified`、`period`、`evidence_ids` |
+| `periods[]` | 时间段、记录数、代表工作、选择规则、`basis`、`basis_source` |
+| `representative_selection[]` | 时间段、`period_from`/`period_to`、规则、`basis`、`basis_source`、`covered_stages`、`known_omissions` |
 | `open_questions[]` | 明确写出的开放问题线索、`locator`、`quote`、年份 |
 | `conflicts[]` | 生命周期背离，以及共现候选的合并/分裂 |
 | `research_gaps[]` | `type` + `basis`，只写批内空白 |
-| `evidence_matrix[]` | 每条记录的来源、年份、比较字段、是否进入序列、纳排理由、`locator`、`quote` |
+| `evidence_matrix[]` | 每条记录的 `locator`（`/records/2` 或 `S3#P7`）、`case_locator`、`file`、比较字段、是否进入序列、纳排理由、`quote` |
+| `source_materials[]` | 解析到的材料：`source_index`、`path`、`kind`、`status`、段落数、字数、预览 |
+| `coverage` | `level`（`full_text` / `abstract_only` / `metadata_only`）、原文匹配数、摘要数、`limits[]` |
+| `review_report` | 四段中文叙事（时间趋势、主题演化、代表性工作、研究空白与边界）与字符数 |
+| `self_check[]` / `validator_verdict` | 自检项（flow 闭合、直方图求和、引用校验、代表年份落在阶段内）与总判定 |
 | `gap_exclusion[]` | `gap`、`basis`、`search_scope`、`exclusion_evidence[]`、`status`、`external_check_required` |
 | `needs_human_confirmation[]` | `item`、`locator`、`reason` |
-| `synthesis` | `narrative`、`direction`、`strongest_signals`、`caveats`、`bounded_by`、`not_a_forecast`、`decision_scope` |
-| `retrieval_scope` | `query`、`inclusion`、`exclusion`、`batch_size`、`dated_batch_size`、`year_range`、`screened_out`、`external_search` |
-| `method` / `limitations` / `change_log` | 规则、限制、处理步骤 |
+| `synthesis` | `narrative`（含分阶段小结、空白、边界）、`direction`、`strongest_signals`、`caveats`、`bounded_by`、`not_a_forecast`、`decision_scope` |
+| `retrieval_scope` | `queries[]`（布尔检索式）、`fields`、`date_range`、`languages`、`hits_per_query[]`、`inclusion`、`exclusion`、`screened_out`、`external_search` |
+| `method` / `limitations` / `change_log` | 规则（含 `period_rule`、`period_basis`、`dedup_rule`）、限制、处理步骤 |
 
 `output_contract` 处理规则：
 
@@ -106,20 +113,20 @@ python3 /skills/weekly-skill/scripts/run_skill.py --input /input --work /app/wor
 
 ## 处理流程
 
-1. **读入与盘点**：解析 `case.json`；登记输入清单；区分有年份与无年份记录，写入 `retrieval_scope`。
-2. **年度分布**：统计逐年计数、年份范围、峰值年；比较前后半段计数给出方向。
+1. **读入与去重**：解析 `case.json` 与材料；按 DOI 或归一化标题+年份去重并记 `duplicate_of`；登记输入清单，写入 `retrieval_scope`。
+2. **年度分布**：只用去重后的有年份记录统计逐年计数、年份范围、峰值年；比较前后半段计数给出方向。
 3. **词项序列**：英文词（≥3 字符、去停用词）+ 中文二元组；只保留在 ≥2 条有年份记录中出现的词项，最多 12 个。
 4. **生命周期**：按首末出现年、前后半段计数、最近 3 年是否出现判定；每项给出可读 `basis`。
 5. **突发年**：逐年计数 > 均值 + 标准差且 ≥2 的年份进入 `bursts`。
-6. **代表工作与阶段**：按三等分年份区间选代表；将生命周期映射到演化阶段；对每对词项计算前后半段共现，给出合并/分裂候选。
-7. **证据与结论**：为趋势、演化、代表、空白各生成 `claim_evidence`；空白另做排除检查（`gap_exclusion`）；汇总 `synthesis`（`expanding` / `contracting` / `mixed` / `flat_or_unresolved` / `undetermined`）并声明不预测。
+6. **代表工作与阶段**：优先用 `case.json` 的 `periods`，否则按等宽年份区间分箱；每阶段一条代表并写明 `basis`/`basis_source`；主题按输入 `concept_rules` 优先、词表回退的顺序归并。
+7. **证据与结论**：为趋势、演化、代表、空白各生成 `claim_evidence`；空白另做排除检查（`gap_exclusion`）；汇总 `synthesis` 与四段中文 `review_report`，并声明不预测。
 
 阈值与上限由 `assets/policy.json` 提供（休眠窗口、增长倍数、词项数、引文长度、清单上限），脚本缺省值与之相同。
 
 ## 证据要求
 
-- `evidence` 每条含 `source_id`、`locator`（如 `/records/2`）、`quote`；`quote` 为所引字段的**精确子串**，超长截取前缀并置 `truncated=true`，`quote_verified` 记录校验结果。
-- `claim_evidence` 每条至少给出一个 `locator` 与 `quote`；`source_ids` 必须能在输入记录中找到。
+- `evidence` 每条含 `source_id`、`locator`（`/records/2` 或材料段落 `S3#P7`）、`quote`；`quote` 为所引字段的**精确子串**，超长截取前缀并置 `truncated=true`，`quote_verified` 记录校验结果。
+- `claim_evidence` 每条至少给出一个 `locator` 与 `quote`；`source_ids` 必须能在输入记录中找到，`evidence_ids` 指向 `evidence_matrix` 行。
 - 代表工作必须说明「批内引用」而非领域引用；无引用计数时说明改用年份与 `source_id` 排序。
 - 没有来源的推断（合并/分裂确认、领域空白、机制解释）只能写进 `needs_human_confirmation`。
 - 不编造记录、年份、期刊、引用数或开放问题原文；不把批内缺席写成领域空白。
@@ -142,12 +149,13 @@ python3 /skills/weekly-skill/scripts/run_skill.py --input /input --work /app/wor
 
 ## 限制
 
-- 词项序列依赖标题/摘要措辞，无法识别同义改写、缩写与跨语言表达。
+- 词项序列依赖标题/摘要措辞；同义合并只按输入 `concept_rules` 或回退词表执行，不做语义推断。
 - 合并/分裂只能给共现候选，不能确认；需要更长窗口与外部索引。
 - 引用数若提供，仅为批内计数，未做领域归一。
 - 生命周期是启发式阈值，摘要收录延迟会伪造「新兴」或「休眠」。
 - 不做预测、主题模型、引文网络或数据库规模归一。
-- 除 case 记录外不解析其他材料文件，也不访问网络。
+- 不联网检索；`retrieval_scope.queries` 只是在给定批次上计数的声明式检索式，命中数不是数据库命中。
+- 材料仅在 md/txt/csv/json（pdf 依赖本机 `pdftotext`）内解析；解析失败会在 `source_materials.status=unparsed` 标出。
 
 ## 最小示例（示例，非正式案例结果）
 
@@ -162,7 +170,11 @@ python3 scripts/sk_entry.py --input examples/demo-case --work /tmp/demo-work --o
 - `conflicts` 至少含 `diverging_term_lifecycles` 与一条 `candidate_merge` / `candidate_split`；
 - `synthesis.direction=mixed`，明确 `not_a_forecast=true`；
 - 10 个契约键全部位于顶层，`not_determinable` 为空；
-- `evidence` 的 `quote_verified` 全部为 `true`，无年份记录出现在 `needs_human_confirmation`。
+- `evidence` 的 `quote_verified` 全部为 `true`，无年份记录出现在 `needs_human_confirmation`；
+- `flow.duplicates=0`、`flow.identified=8`、`flow.dated=7`，`review_report.char_count ≥ 200`；
+- 输出目录同时写出 `trend_stats.json`（年份直方图 + 逐条记录表）、`screening_log.csv`（逐条 decision/duplicate_of）与 `report.md`，并在 `artifacts` 登记。
+
+示意输出见 `examples/demo-case/example-result.json`（合成演示，非平台案例结果）。
 
 示意输出（截断）：
 
@@ -183,5 +195,6 @@ python3 scripts/sk_entry.py --input examples/demo-case --work /tmp/demo-work --o
 - [ ] 每条 `claim_evidence` 的 `quote` 能在 `locator` 指向字段逐字找到（`quote_verified=true`）。
 - [ ] 合并/分裂只以候选形式出现，措辞未升级为确认。
 - [ ] 无年份记录未被静默丢弃：出现在 `uncertainty` 或 `needs_human_confirmation`。
-- [ ] 重复运行两次，`result.json` 内容一致；无 `__pycache__`、无令牌或密钥。
+- [ ] 完整数值以实际运行为准；`trend_stats.json` 的 `year_histogram` 可用 `screening_log.csv` 中 `decision=include` 的行复算。
+- [ ] 重复运行两次，`result.json` 内容一致；无 `__pycache__`、无令牌或密钥、无主机绝对路径。
 - [ ] 保留 `GITHUB_URL.txt` 原样，文件数与总大小在 50 个 / 2MB 以内。
